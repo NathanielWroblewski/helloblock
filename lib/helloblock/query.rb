@@ -34,11 +34,8 @@ module HelloBlock
 
     def to_hash
       (query_copy = query.clone) and (@query = default_query)
-      if query_copy[:post]
-        HelloBlock.post(query_copy[:path], query_copy[:params])
-      else
-        HelloBlock.get(query_copy[:path], query_copy[:params])
-      end
+      method = query_copy[:post] ? :post : :get
+      HelloBlock.send(method, query_copy[:path], query_copy[:params])
     end
   end
 end
