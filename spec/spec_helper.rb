@@ -7,6 +7,6 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each){ HelloBlock.reset }
 end

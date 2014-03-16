@@ -1,5 +1,8 @@
 require 'helloblock/version'
 require 'helloblock/utils'
+require 'helloblock/endpoints'
+require 'helloblock/query'
+require 'helloblock/address'
 
 module HelloBlock
   extend HelloBlock::Utils
