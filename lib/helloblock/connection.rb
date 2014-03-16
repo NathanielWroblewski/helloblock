@@ -1,4 +1,5 @@
 require 'faraday_middleware'
+require 'pry'
 
 module HelloBlock
   module Connection

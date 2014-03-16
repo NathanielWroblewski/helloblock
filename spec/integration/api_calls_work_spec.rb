@@ -37,11 +37,20 @@ describe HelloBlock::Transaction, '.find' do
 end
 
 describe HelloBlock::Transaction, '.where' do
+  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
 
   it 'retrieves a batch of transactions from the API' do
     VCR.use_cassette(:batch_transactions) do
       response = HelloBlock::Transaction.where(transaction: [tx, tx]).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+
+  it 'retrieves from the API a batch of transactions given a single address' do
+    VCR.use_cassette(:batch_transactions_given_single_address) do
+      response = HelloBlock::Transaction.where(address: [address]).to_hash
 
       expect(response['status']).to eq 'success'
     end

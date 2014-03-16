@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://testnet.helloblock.io/v1/addresses/?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&addresses%5B1%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    uri: http://testnet.helloblock.io/v1/addresses/transactions?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
     body:
       encoding: US-ASCII
       string: ''
@@ -26,22 +26,24 @@ http_interactions:
       - Sun, 16 Mar 2014 17:39:39 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '47'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=da08664e13aa3236667f28137c45f0c741394991578940; expires=Mon, 23-Dec-2019
+      - __cfduid=dbec6f4754c978ef809fd57b9e56835101394991579416; expires=Mon, 23-Dec-2019
         23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
       Access-Control-Allow-Origin:
       - '*'
+      Etag:
+      - '"576461842"'
       X-Powered-By:
       - Express
       Cf-Ray:
-      - 10c2bb386fbe070d-SJC
+      - 10c2bb3b5795070d-SJC
     body:
       encoding: UTF-8
-      string: '{"status":"success","data":{"addresses":[{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"},{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"}]}}'
+      string: '{"status":"success","data":{"transactions":[]}}'
     http_version: 
   recorded_at: Sun, 16 Mar 2014 17:39:39 GMT
 recorded_with: VCR 2.8.0

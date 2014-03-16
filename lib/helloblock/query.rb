@@ -29,6 +29,7 @@ module HelloBlock
         api_resource = API_PARAMETERS[resource]
         query[:params][api_resource] = ids
       end
+      determine_parent_resource
       self
     end
 
@@ -36,6 +37,14 @@ module HelloBlock
       (query_copy = query.clone) and (@query = default_query)
       method = query_copy[:post] ? :post : :get
       HelloBlock.send(method, query_copy[:path], query_copy[:params])
+    end
+
+    # exceptions: querying transactions with addresses actually hits
+    # /addresses/transactions endpoint
+    def determine_parent_resource
+      if query[:path] == ENDPOINTS[:transaction] && query[:params][:addresses]
+        query[:path] = ENDPOINTS[:addresses_transactions]
+      end
     end
   end
 end

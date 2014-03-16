@@ -1,11 +1,12 @@
 module HelloBlock
   module Endpoints
     ENDPOINTS = {
-      address:     '/addresses/',
-      transaction: '/transactions/',
-      wallet:      '/wallet/',
-      block:       '/blocks/',
-      faucet:      '/faucet/'
+      address:                '/addresses/',
+      addresses_transactions: '/addresses/transactions',
+      transaction:            '/transactions/',
+      wallet:                 '/wallet/',
+      block:                  '/blocks/',
+      faucet:                 '/faucet/'
     }
 
     def base_url
