@@ -1,6 +1,6 @@
-# Helloblock
+# HelloBlock
 
-TODO: Write a gem description
+Fluent ruby wrapper for the [HelloBlock](http://www.helloblock.io) API.  For a simple, non-fluent wrapper, see [helloblock-ruby](http://github.com/nathanielwroblewski/helloblock-ruby).
 
 ## Installation
 
@@ -18,7 +18,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Configure your HelloBlock session:
+
+```rb
+HelloBlock.configure do |config|
+  config.api_key = 'APIKEY' # your api key goes here
+  config.version = :v1      # defaults to latest version
+  config.network = :mainnet # defaults to testnet
+end
+```
+
+Query the HelloBlock API with familiar [ActiveRecord](https://github.com/rails/rails/tree/master/activerecord)-like syntax.  NOTE: As of the current version, `#to_hash` must be called on each completed query as a kicker method.
+
+Description  | Method
+------------- | ------------- |
+Fetch a single address  | `HelloBlock::Address.find('1DQN9nop...').to_hash`|
+Fetch batch addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...]).to_hash` |
+
 
 ## Contributing
 
