@@ -1,11 +1,16 @@
+require 'helloblock/endpoints'
+
 module HelloBlock
   module Request
+
+    include HelloBlock::Endpoints
+
     def get(path, params={})
-      request(:get, path, params, headers)
+      request(:get, version_path + path, params, headers)
     end
 
     def post(path, params={})
-      request(:post, path, { body: params }, headers)
+      request(:post, version_path + path, { body: params }, headers)
     end
 
     private

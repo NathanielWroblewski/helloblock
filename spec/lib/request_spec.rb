@@ -12,7 +12,7 @@ describe HelloBlock::Request, '.get' do
     HelloBlock.get('/bananas/', {})
 
     expect(connection).to have_received(:get).with(
-      '/bananas/', {}, {
+      '/v1/bananas/', {}, {
           accept: '*/*',
           content_type: 'application/json; charset=UTF-8'
         }
@@ -32,7 +32,7 @@ describe HelloBlock::Request, '.post' do
     HelloBlock.post('/bananas/', {})
 
     expect(connection).to have_received(:post).with(
-      '/bananas/', { body: {} }, {
+      '/v1/bananas/', { body: {} }, {
           accept: '*/*',
           content_type: 'application/json; charset=UTF-8'
         }

@@ -16,5 +16,16 @@ module HelloBlock
     def find(id)
       query[:path] += id
     end
+
+    def to_hash
+      
+      clear_query
+    end
+
+    private
+
+    def clear_query
+
+    end
   end
 end
