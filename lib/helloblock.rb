@@ -1,5 +1,5 @@
 require "helloblock/version"
 
-module Helloblock
+module HelloBlock
   # Your code goes here...
 end

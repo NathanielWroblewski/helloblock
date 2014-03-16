@@ -5,7 +5,7 @@ require 'helloblock/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "helloblock"
-  spec.version       = Helloblock::VERSION
+  spec.version       = HelloBlock::VERSION
   spec.authors       = ["Nathaniel Wroblewski"]
   spec.email         = ["nathanielwroblewski@gmail.com"]
   spec.description   = %q{Fluent Ruby wrapper for the helloblock.io API}
