@@ -1,9 +1,11 @@
 require 'pry'
 require 'helloblock/endpoints'
+require 'helloblock/api_parameters'
 
 module HelloBlock
   module Query
     include HelloBlock::Endpoints
+    include HelloBlock::APIParameters
 
     def query
       @@query ||= default_query
@@ -19,6 +21,15 @@ module HelloBlock
 
     def find(id)
       query[:path] += id
+      self
+    end
+
+    # where(transaction: [..., ...]) -> converts :transaction to API's :txHashes
+    def where(conditions)
+      conditions.each do |resource, ids|
+        api_resource = API_PARAMETERS[resource]
+        query[:params][api_resource] = ids
+      end
       self
     end
 
