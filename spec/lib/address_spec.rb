@@ -46,7 +46,7 @@ describe HelloBlock::Address, '.where' do
     HelloBlock::Address.where(address: [address, address]).to_hash
 
     expect(connection).to have_received(:get).with(
-      '/v1/addresses/', { addresses: "#{address}&addresses=#{address}" },
+      '/v1/addresses/', { addresses: [address, address] },
       { accept: '*/*', content_type: 'application/json; charset=UTF-8' }
     )
   end

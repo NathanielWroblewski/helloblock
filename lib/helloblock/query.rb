@@ -7,7 +7,7 @@ module HelloBlock
     include HelloBlock::APIParameters
 
     def query
-      @@query ||= default_query
+      @query ||= default_query
     end
 
     def default_query
@@ -33,7 +33,7 @@ module HelloBlock
     end
 
     def to_hash
-      (query_copy = query.clone) and (@@query = default_query)
+      (query_copy = query.clone) and (@query = default_query)
       if query_copy[:post]
         HelloBlock.post(query_copy[:path], query_copy[:params])
       else

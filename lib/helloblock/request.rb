@@ -1,5 +1,4 @@
 require 'helloblock/endpoints'
-require 'pry'
 
 module HelloBlock
   module Request
@@ -17,19 +16,11 @@ module HelloBlock
     private
 
     def request(method, path, params={}, headers={})
-      # format_batches(params) if params
-      binding.pry
       connection.send(method.to_sym, path, params, headers).body
     end
 
     def headers
       { accept: '*/*', content_type: 'application/json; charset=UTF-8' }
     end
-
-    # def format_batches(params)
-    #   params.each do |key, value|
-    #     params[key] = value.join("&#{key}=") if value.is_a?(Array)
-    #   end
-    # end
   end
 end
