@@ -7,5 +7,9 @@ module HelloBlock
       block:       '/blocks/',
       faucet:      '/faucet/'
     }
+
+    def base_url
+      "http://#{network}.helloblock.io"
+    end
   end
 end
