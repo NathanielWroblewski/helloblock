@@ -3,7 +3,7 @@ require 'faraday_middleware'
 module HelloBlock
   module Connection
     def connection
-      @@connection ||= Faraday.new(base_url, connection_options) do |connection|
+      @connection ||= Faraday.new(base_url, connection_options) do |connection|
         connection.request :json
         connection.response :json
         connection.use FaradayMiddleware::Rashify
@@ -13,7 +13,7 @@ module HelloBlock
     end
 
     def connection_options
-      @@connection_options ||= {
+      @connection_options ||= {
         headers: {
           accept: 'application/json',
           user_agent: "HelloBlock Gem #{HelloBlock::VERSION}"

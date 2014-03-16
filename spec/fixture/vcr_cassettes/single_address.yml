@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/addresses/1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 16 Mar 2014 08:55:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da06e692e5b20eaa7418184524c8b2a401394960110630; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10bfbaf37f5b0651-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"address":{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Mar 2014 08:55:10 GMT
+recorded_with: VCR 2.8.0

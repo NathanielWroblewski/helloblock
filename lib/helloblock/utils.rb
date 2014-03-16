@@ -7,11 +7,11 @@ module HelloBlock::Utils
   end
 
   def mattr_reader(sym)
-    module_eval("def self.#{sym}; @@#{sym}; end")
+    module_eval("def #{sym}; @#{sym}; end")
   end
 
   def mattr_writer(sym)
-    module_eval("def self.#{sym}=(obj); @@#{sym} = obj; end")
-    module_eval("@@#{sym} = nil unless defined? @@#{sym}")
+    module_eval("def #{sym}=(obj); @#{sym} = obj; end")
+    module_eval("@#{sym} = nil unless defined? @#{sym}")
   end
 end
