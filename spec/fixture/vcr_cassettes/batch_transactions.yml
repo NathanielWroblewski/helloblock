@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/transactions/?txHashes%5B0%5D=f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700&txHashes%5B1%5D=f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 16 Mar 2014 16:38:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de09880b23924065aad0fdb37aa8a48641394987925818; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10c2620852150651-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"transactions":[{"txHash":"f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700","version":1,"locktime":0,"size":225,"blockHash":null,"blockHeight":null,"blockTime":null,"estimatedTxTime":1394971617,"confirmations":0,"inputsCount":1,"outputsCount":2,"inputs":[{"prevTxoutIndex":1,"prevTxHash":"160855db287705a133c2a15176cb5acf3febe502c272016381dc4fa0d43effa6","value":7980000,"address":"n2WeNdvFk7GX9p38Ni7yebD56TfjvgDavC","hash160":"e64bae89305148c4098b1117594f802bcfcafdab","scriptSig":"47304402204bcc88caaefba54dfd2c7494af1898fa85af2cd0ece2070db618a9d3711772ce02201fd92149c149ebd9451a50013ef3e197e7e701283d5c25808ef0a3f933ab33e50121025c1ad4bc312481611e783751b8fc4de830a4436c129c4b82d704e728f3a5c1a3"}],"outputs":[{"index":0,"value":90000,"scriptPubKey":"76a914c081d02953f84ab9cb7aff43a845afb689d0c7ed88ac","address":"my4qYTdMmc7Dnd5H85HZSjtsD8NDmvyewJ","hash160":"c081d02953f84ab9cb7aff43a845afb689d0c7ed","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null},{"index":1,"value":7880000,"scriptPubKey":"76a914e64bae89305148c4098b1117594f802bcfcafdab88ac","address":"n2WeNdvFk7GX9p38Ni7yebD56TfjvgDavC","hash160":"e64bae89305148c4098b1117594f802bcfcafdab","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":7980000,"totalOutputsValue":7970000,"fees":10000}]}}'
+    http_version: 
+  recorded_at: Sun, 16 Mar 2014 16:38:46 GMT
+recorded_with: VCR 2.8.0
