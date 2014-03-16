@@ -38,7 +38,7 @@ end
 
 describe HelloBlock::Address, '.where' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
-  let(:connection) { double(:farday_connection).as_null_object }
+  let(:connection) { double(:faraday_connection).as_null_object }
 
   it 'adds a batch of specific addresses to the params' do
     HelloBlock.stub(:connection).and_return(connection)
@@ -46,7 +46,7 @@ describe HelloBlock::Address, '.where' do
     HelloBlock::Address.where(address: [address, address]).to_hash
 
     expect(connection).to have_received(:get).with(
-      '/v1/addresses/', { addresses: "#{address}&addresses=#{address}" }, 
+      '/v1/addresses/', { addresses: "#{address}&addresses=#{address}" },
       { accept: '*/*', content_type: 'application/json; charset=UTF-8' }
     )
   end
