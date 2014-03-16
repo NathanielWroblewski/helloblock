@@ -12,5 +12,9 @@ module HelloBlock
     def parent_class
       self.to_s.split('::').last.downcase.to_sym
     end
+
+    def find(id)
+      query[:path] += id
+    end
   end
 end
