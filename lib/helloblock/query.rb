@@ -39,6 +39,11 @@ module HelloBlock
       self
     end
 
+    def offset(number)
+      query[:params][:offset] = number
+      self
+    end
+
     def to_hash
       (query_copy = query.clone) and (@query = default_query)
       method = query_copy[:post] ? :post : :get
