@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Sun, 16 Mar 2014 17:39:38 GMT
+      - Mon, 17 Mar 2014 16:46:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,17 +31,17 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d40813e4b79b0c29070ea64251aa21f771394991578708; expires=Mon, 23-Dec-2019
+      - __cfduid=d522542990ab83b2ea35755ea3da3ac561395074768841; expires=Mon, 23-Dec-2019
         23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
       Access-Control-Allow-Origin:
       - '*'
       X-Powered-By:
       - Express
       Cf-Ray:
-      - 10c2bb36ee7f070d-SJC
+      - 10caaa3942ca0651-SJC
     body:
       encoding: UTF-8
       string: '{"status":"success","data":{"address":{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"}}}'
     http_version: 
-  recorded_at: Sun, 16 Mar 2014 17:39:39 GMT
+  recorded_at: Mon, 17 Mar 2014 16:46:10 GMT
 recorded_with: VCR 2.8.0

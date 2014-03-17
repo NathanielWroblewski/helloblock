@@ -48,9 +48,9 @@ describe HelloBlock::Transaction, '.where' do
     end
   end
 
-  it 'retrieves from the API a batch of transactions given a single address' do
-    VCR.use_cassette(:batch_transactions_given_single_address) do
-      response = HelloBlock::Transaction.where(address: [address]).to_hash
+  it 'retrieves from the API a batch of transactions given several addresses' do
+    VCR.use_cassette(:batch_transactions_addresses) do
+      response = HelloBlock::Transaction.where(address: [address, address]).to_hash
 
       expect(response['status']).to eq 'success'
     end

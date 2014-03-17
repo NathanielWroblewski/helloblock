@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://testnet.helloblock.io/v1/addresses/transactions?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    uri: http://testnet.helloblock.io/v1/addresses/transactions?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&addresses%5B1%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Sun, 16 Mar 2014 17:39:39 GMT
+      - Mon, 17 Mar 2014 16:46:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dbec6f4754c978ef809fd57b9e56835101394991579416; expires=Mon, 23-Dec-2019
+      - __cfduid=d5e91b39418bb18c905088b4a9b73d8de1395074771259; expires=Mon, 23-Dec-2019
         23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
       Access-Control-Allow-Origin:
       - '*'
@@ -40,10 +40,10 @@ http_interactions:
       X-Powered-By:
       - Express
       Cf-Ray:
-      - 10c2bb3b5795070d-SJC
+      - 10caaa485cd4070d-SJC
     body:
       encoding: UTF-8
       string: '{"status":"success","data":{"transactions":[]}}'
     http_version: 
-  recorded_at: Sun, 16 Mar 2014 17:39:39 GMT
+  recorded_at: Mon, 17 Mar 2014 16:46:12 GMT
 recorded_with: VCR 2.8.0

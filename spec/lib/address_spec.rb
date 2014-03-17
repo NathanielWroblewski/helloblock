@@ -11,7 +11,7 @@ end
 describe HelloBlock::Address, '.find' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   after :each do
-    HelloBlock::Address.query.to_hash # clear the query for other specs
+    HelloBlock::Address.to_hash # clear the query for other specs
   end
 
   it 'adds a single specific address to the path' do
