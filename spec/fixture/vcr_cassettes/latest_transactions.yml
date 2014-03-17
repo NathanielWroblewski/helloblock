@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/transactions/latest?limit=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 17 Mar 2014 16:59:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dbd855fa0be018eec7af719a9c77571571395075547283; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10cabd3a812b0651-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"transactions":[{"txHash":"490f14ee40708ab12ae02846fc1d432d1b1e0bb84513bc8f152960b66e31a144","version":1,"locktime":0,"size":258,"blockHash":null,"blockHeight":null,"blockTime":null,"estimatedTxTime":1395075505,"confirmations":0,"inputsCount":1,"outputsCount":2,"inputs":[{"prevTxHash":"0a48bb48d35010a59a5ed7fd7b4fab0493589652148fd7e1d3c9076846b43fe9","prevTxoutIndex":0,"prevTxoutType":"pubkeyhash","value":140011541000,"address":"ms2AmnfojyQXFbwReFRwriYSLpUR8umJRH","hash160":"7e2fdcde7e9a9b4a5adb14d19722d3e53e7f6bd2","scriptSig":"483045022100fb5ee3610ed5d225bbdddf0416901b1efd5f59b7ce10db88b3c9be05dc5098d802207cc119295b80af215af2a0116abae91e4246dabecd34c152c675a9be9ffdb78101410436c0a9a6d3de1ed555c80d13307d7fb0f2024929fbe9353a2b4a3331f12783f700441889e5211f9fed2fc5c739c3849d9a2d6324d63ab05b30c6ccc1bfbc5464"}],"outputs":[{"index":0,"value":140011431000,"scriptPubKey":"76a91487a55acdcaebfb6d406db7ae2ed7f170fc4d5dd088ac","address":"mstBbzo7khPDTedqvBbRSrsciGMuBaGwvU","hash160":"87a55acdcaebfb6d406db7ae2ed7f170fc4d5dd0","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null},{"index":1,"value":100000,"scriptPubKey":"76a9142393d21bdf4888db1d029afa1bb919a2b6ccc04f88ac","address":"mim52XsHbvzYwZex9phnBfPFHMhZ3XmMJT","hash160":"2393d21bdf4888db1d029afa1bb919a2b6ccc04f","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":140011541000,"totalOutputsValue":140011531000,"fees":10000},{"txHash":"fcec4cda27609561df832b5407c2443936e536f901da7863eb9acd30d97fe305","version":1,"locktime":0,"size":226,"blockHash":null,"blockHeight":null,"blockTime":null,"estimatedTxTime":1395075393,"confirmations":0,"inputsCount":1,"outputsCount":2,"inputs":[{"prevTxHash":"26550edcaff29f37732497c4cbb23d6cf135dd2b4f74a43024c80eecd5b67c4e","prevTxoutIndex":1,"prevTxoutType":"pubkeyhash","value":78520700,"address":"n2ZQyQfvKs7H4FMdwouY2aiRVCBekQQPSf","hash160":"e6d1be5611333ca5ce030a6fd2e8a7eff9c00dec","scriptSig":"4830450221009999fa178b86a2636a7f4ec97171d9a606b9ba22e0d8e581e4cd9eb649b23a5102200d29121b7a0ec4c8d30ef765feff9f0b71b7acb7d8c677b2bfb96b70b08d44a1012102986b85e9c32eef642e428f303b68dedd67a7860ec6c905436549c28b31fc0731"}],"outputs":[{"index":0,"value":1000000,"scriptPubKey":"76a9149d9c3d5ceaf4a6645dee62d4421431ce4da2f20088ac","address":"mutKYtvQJ5FV6cs82hjXEfWNGZRFz6Y74S","hash160":"9d9c3d5ceaf4a6645dee62d4421431ce4da2f200","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null},{"index":1,"value":77510700,"scriptPubKey":"76a914e6d1be5611333ca5ce030a6fd2e8a7eff9c00dec88ac","address":"n2ZQyQfvKs7H4FMdwouY2aiRVCBekQQPSf","hash160":"e6d1be5611333ca5ce030a6fd2e8a7eff9c00dec","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":78520700,"totalOutputsValue":78510700,"fees":10000},{"txHash":"db62bf614374d956eeb980907deb5c2c6bad9d763dead1f0e7c17d8a2f4eb883","version":1,"locktime":0,"size":223,"blockHash":null,"blockHeight":null,"blockTime":null,"estimatedTxTime":1395075363,"confirmations":0,"inputsCount":1,"outputsCount":1,"inputs":[{"prevTxHash":"42f5abfb92ec8506d8309b83d2b30dbde5562bc29ce122e6c3c976479fb6a60b","prevTxoutIndex":0,"prevTxoutType":"pubkeyhash","value":3000000000,"address":"mrEiHU4dJArbYip4L82UugmmCcnHZZmA7P","hash160":"7597087e67277142f57ec72fa4dbf6539b18aa83","scriptSig":"4730440220263b95f781834a3c5b2dfbc988523f4d3075ff2941ee9588fe13e317cd8b9a8f02207c3c529430567affdc2d23d61ecefd824dae1e7725bf08bdc8f1874328f661000141041e3eac0c521ae17115d74ac012f29708908f14678968400ea9b302e3b1b237316d575b515a85435057e6d1e2ea2fce5ba30710ceba81b60bb8d99dedc4e09b9a"}],"outputs":[{"index":0,"value":3000000000,"scriptPubKey":"76a9145edefbb378556730b639ea016d53d26a81a3a4ab88ac","address":"mpAawEM7TQT17cTmZS2YVaUSYXpBLhQP97","hash160":"5edefbb378556730b639ea016d53d26a81a3a4ab","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":3000000000,"totalOutputsValue":3000000000,"fees":0},{"txHash":"2c2c0fc1f7412ecb90dabfcbc00dbb5df448302a4ff11406577ee1ef9fd63683","version":1,"locktime":0,"size":225,"blockHash":null,"blockHeight":null,"blockTime":null,"estimatedTxTime":1395075362,"confirmations":0,"inputsCount":1,"outputsCount":1,"inputs":[{"prevTxHash":"6c278459ea9285f21d9391347a8b677f0ad1a5b5e056167c8e672be0f1d7923f","prevTxoutIndex":0,"prevTxoutType":"pubkeyhash","value":1000000000,"address":"mxHYzPZrZsScHQVqrvqZUTsgwaLuL8ckYS","hash160":"b7f146f3e4d0ab835658ec52344ddaae563c6fd6","scriptSig":"493046022100c30edb441fdfe5fed8c99d73c52ee1592b0202f6d1f7af05ca25a5272a56a681022100f6dee9645bb42e258bed43a8abb74c41c1f79695c3abf61a091d503413f35b39014104514c61a9fa4f1b200e25cb13cde5555ea227469a957fae743992733859342223e454718a12dd9dd7e3f3d47b82fb6f967f85a9459394f42a75de5d29bed1d987"}],"outputs":[{"index":0,"value":1000000000,"scriptPubKey":"76a9145edefbb378556730b639ea016d53d26a81a3a4ab88ac","address":"mpAawEM7TQT17cTmZS2YVaUSYXpBLhQP97","hash160":"5edefbb378556730b639ea016d53d26a81a3a4ab","txoutType":"pubkeyhash","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":1000000000,"totalOutputsValue":1000000000,"fees":0},{"txHash":"69a44ce97218557b79efaa72e6685f864afc86a23de5881a11af923620435a1a","version":1,"locktime":0,"size":109,"blockHash":"000000001e0ea50f348c938073910596001449028b4e9636de80b9c2c154de3c","blockHeight":205308,"blockTime":1395075885,"estimatedTxTime":1395075354,"confirmations":1,"inputsCount":1,"outputsCount":1,"inputs":[{"prevTxHash":"0000000000000000000000000000000000000000000000000000000000000000","prevTxoutIndex":-1,"prevTxoutType":"coinbase","value":0,"address":null,"hash160":null,"scriptSig":"03fc2103027f04062f503253482f"}],"outputs":[{"index":0,"value":5000040000,"scriptPubKey":"21034169a9396ab512b3b9428c75c8859dce4eb0332e6fb5518204e2b420d99ebe5eac","address":"mzXNj4Dho75xqgYttLnxMQ21d9SezENkuB","hash160":"d07ec8af554a0bc6639d0fab7d09b80d3a29f381","txoutType":"pubkey","spent":false,"nextTxHash":null,"nextTxinIndex":null}],"totalInputsValue":0,"totalOutputsValue":5000040000,"fees":0}]}}'
+    http_version: 
+  recorded_at: Mon, 17 Mar 2014 16:59:08 GMT
+recorded_with: VCR 2.8.0

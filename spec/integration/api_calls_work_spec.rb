@@ -56,3 +56,13 @@ describe HelloBlock::Transaction, '.where' do
     end
   end
 end
+
+describe HelloBlock::Transaction, '.last' do
+  it 'retrieves the latest transactions from the API' do
+    VCR.use_cassette(:latest_transactions) do
+      response = HelloBlock::Transaction.last(5).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end
