@@ -63,13 +63,23 @@ describe HelloBlock::Transaction, '.last' do
   after :each do
     HelloBlock::Transaction.to_hash
   end
-  
+
   it 'changes the path to the latest transactions path and passes a limit' do
     HelloBlock::Transaction.last(5)
 
     expect(HelloBlock::Transaction.query[:path]).to eq '/transactions/latest'
-    expect(HelloBlock::Transaction.query[:params]).to eq(
-      { limit: 5 }
-    )
+    expect(HelloBlock::Transaction.query[:params]).to eq({ limit: 5 })
+  end
+end
+
+describe HelloBlock::Transaction, '.offset' do
+  after :each do
+    HelloBlock::Transaction.to_hash
+  end
+
+  it 'changes the path to the latest transactions path and passes a limit' do
+    HelloBlock::Transaction.offset(5)
+
+    expect(HelloBlock::Transaction.query[:params]).to eq({ offset: 5 })
   end
 end
