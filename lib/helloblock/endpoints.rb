@@ -4,6 +4,7 @@ module HelloBlock
       address:                '/addresses/',
       addresses_transactions: '/addresses/transactions',
       transaction:            '/transactions/',
+      latest:                 'latest',
       wallet:                 '/wallet/',
       block:                  '/blocks/',
       faucet:                 '/faucet/'

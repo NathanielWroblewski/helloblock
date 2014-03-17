@@ -33,6 +33,12 @@ module HelloBlock
       self
     end
 
+    def last(limit)
+      query[:path] = ENDPOINTS[parent_class] + ENDPOINTS[:latest]
+      query[:params][:limit] = limit
+      self
+    end
+
     def to_hash
       (query_copy = query.clone) and (@query = default_query)
       method = query_copy[:post] ? :post : :get
