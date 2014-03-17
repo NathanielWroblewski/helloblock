@@ -58,19 +58,18 @@ describe HelloBlock::Transaction, '.where' do
   end
 end
 
-#
-# describe HelloBlock::Address, '.where' do
-#   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
-#   let(:connection) { double(:faraday_connection).as_null_object }
-#
-#   it 'adds a batch of specific addresses to the params' do
-#     HelloBlock.stub(:connection).and_return(connection)
-#
-#     HelloBlock::Address.where(address: [address, address]).to_hash
-#
-#     expect(connection).to have_received(:get).with(
-#       '/v1/addresses/', { addresses: [address, address] },
-#       { accept: '*/*', content_type: 'application/json; charset=UTF-8' }
-#     )
-#   end
-# end
+
+describe HelloBlock::Transaction, '.last' do
+  after :each do
+    HelloBlock::Transaction.to_hash
+  end
+  
+  it 'changes the path to the latest transactions path and passes a limit' do
+    HelloBlock::Transaction.last(5)
+
+    expect(HelloBlock::Transaction.query[:path]).to eq '/transactions/latest'
+    expect(HelloBlock::Transaction.query[:params]).to eq(
+      { limit: 5 }
+    )
+  end
+end
