@@ -8,11 +8,11 @@ describe HelloBlock::Transaction, '.query' do
   end
 end
 
-describe HelloBlock::Transaction, '.to_hash' do
+describe HelloBlock::Transaction, 'inspect' do
   it 'kicks the query and resets the query hash' do
     HelloBlock::Transaction.find('bananas')
 
-    HelloBlock::Transaction.to_hash
+    HelloBlock::Transaction.inspect
 
     expect(HelloBlock::Transaction.query).to eq(
       { path: '/transactions/', params: {} }
@@ -23,7 +23,7 @@ end
 describe HelloBlock::Transaction, '.find' do
   let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
   after :each do
-    HelloBlock::Transaction.query.to_hash #clear the query for other specs
+    HelloBlock::Transaction.inspect #clear the query for other specs
   end
 
   it 'adds a single transaction hash to the path' do
@@ -37,7 +37,7 @@ describe HelloBlock::Transaction, '.where' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
   after :each do
-    HelloBlock::Transaction.to_hash
+    HelloBlock::Transaction.inspect
   end
 
   it 'adds a batch of transaction hashes to the params and alters the path' do
@@ -61,7 +61,7 @@ end
 
 describe HelloBlock::Transaction, '.last' do
   after :each do
-    HelloBlock::Transaction.to_hash
+    HelloBlock::Transaction.inspect
   end
 
   it 'changes the path to the latest transactions path and passes a limit' do
@@ -74,7 +74,7 @@ end
 
 describe HelloBlock::Transaction, '.offset' do
   after :each do
-    HelloBlock::Transaction.to_hash
+    HelloBlock::Transaction.inspect
   end
 
   it 'changes the path to the latest transactions path and passes a limit' do
@@ -95,7 +95,7 @@ describe HelloBlock::Transaction, '.create' do
              '6d6e1f2985cb8939db91a4e0588ace065f81f000000001976a914cf0dfe' +
              '6e0fa6ea5dda32c58ff699071b672e1faf88ac00000000' }
   after :each do
-    HelloBlock::Transaction.to_hash
+    HelloBlock::Transaction.inspect
   end
 
   it 'sets the raw transaction hex in the parameters' do

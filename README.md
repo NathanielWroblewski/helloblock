@@ -32,20 +32,20 @@ Query the HelloBlock API with familiar [ActiveRecord](https://github.com/rails/r
 
 Description  | Method
 ------------- | ------------- |
-Fetch a single address  | `HelloBlock::Address.find('1DQN9nop...').to_hash`|
-Fetch batch addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...]).to_hash` |
-Fetch unspents for address  | `HelloBlock::Address.find('1DQN9nop...').unspents.to_hash` |
-Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(address: ['1DQN9nop...', ...]).to_hash` |
-Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...').to_hash` |
-Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...]).to_hash` |
-Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...]).to_hash` |
-Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7).to_hash` |
-Propagate a transaction  | `HelloBlock::Transaction.create('01000...').to_hash` |
-Fetch a block  | `HelloBlock::Block.find('00000...').to_hash` |
-Fetch latest block  | `HelloBlock::Block.last(1).to_hash` |
-Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false).to_hash` |
-Fetch unspents from faucet | `HelloBlock::Faucet.where(type: 3).to_hash` |
-Withdraw from faucet | `HelloBlock::Faucet.withdraw(to: '1DQN9nop...', amount: 100_000).to_hash` |
+Fetch a single address  | `HelloBlock::Address.find('1DQN9nop...')`|
+Fetch batch addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...])` |
+Fetch unspents for address  | `HelloBlock::Address.find('1DQN9nop...').unspents` |
+Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(address: ['1DQN9nop...', ...])` |
+Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...')` |
+Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...])` |
+Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...])` |
+Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7)` |
+Propagate a transaction  | `HelloBlock::Transaction.create('01000...')` |
+Fetch a block  | `HelloBlock::Block.find('00000...')` |
+Fetch latest block  | `HelloBlock::Block.last(1)` |
+Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false)` |
+Fetch unspents from faucet | `HelloBlock::Faucet.where(type: 3)` |
+Withdraw from faucet | `HelloBlock::Faucet.withdraw(to: '1DQN9nop...', amount: 100_000)` |
 
 ## Contributing
 

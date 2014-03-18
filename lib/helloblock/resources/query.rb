@@ -51,6 +51,18 @@ module HelloBlock
       HelloBlock.send(method, query_copy[:path], query_copy[:params])
     end
 
+    def [](attribute)
+      to_hash[attribute]
+    end
+
+    def []=(attribute, value)
+      to_hash[attribute] = value
+    end
+
+    def inspect
+      to_hash.to_s
+    end
+
     # exceptions: querying transactions with addresses actually hits
     # /addresses/transactions endpoint
     def determine_parent_resource

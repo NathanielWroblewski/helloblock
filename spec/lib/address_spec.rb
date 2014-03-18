@@ -11,7 +11,7 @@ end
 describe HelloBlock::Address, '.find' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   after :each do
-    HelloBlock::Address.to_hash # clear the query for other specs
+    HelloBlock::Address.inspect # clear the query for other specs
   end
 
   it 'adds a single specific address to the path' do
@@ -23,14 +23,14 @@ describe HelloBlock::Address, '.find' do
   end
 end
 
-describe HelloBlock::Address, '.to_hash' do
+describe HelloBlock::Address, 'inspect' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   before :each do
     HelloBlock.stub(:get)
   end
 
   it 'resets the query' do
-    HelloBlock::Address.find(address).to_hash
+    HelloBlock::Address.find(address).inspect
 
     expect(HelloBlock::Address.query).to eq({ path: "/addresses/", params: {} })
   end
@@ -43,7 +43,9 @@ describe HelloBlock::Address, '.where' do
   it 'adds a batch of specific addresses to the params' do
     HelloBlock.stub(:connection).and_return(connection)
 
-    HelloBlock::Address.where(address: [address, address]).to_hash
+    response = HelloBlock::Address.where(address: [address, address])
+
+    response['status'] # kick the query
 
     expect(connection).to have_received(:get).with(
       '/v1/addresses/', { addresses: [address, address] },
@@ -55,7 +57,7 @@ end
 describe HelloBlock::Address, '.unspents' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   after :each do
-    HelloBlock::Address.to_hash
+    HelloBlock::Address.inspect
   end
 
   it 'adds the unspents endpoint to the path for a single address' do

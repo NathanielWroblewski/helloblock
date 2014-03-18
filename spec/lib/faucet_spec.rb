@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe HelloBlock::Faucet, '.where' do
   after :each do
-    HelloBlock::Faucet.to_hash
+    HelloBlock::Faucet.inspect
   end
 
   it 'adds the type to the params' do
@@ -16,7 +16,7 @@ end
 describe HelloBlock::Faucet, '.withdraw' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
   after :each do
-    HelloBlock::Faucet.to_hash
+    HelloBlock::Faucet.inspect
   end
 
   it 'adds the type to the params' do

@@ -5,7 +5,7 @@ describe HelloBlock::Address, '.find' do
 
   it 'retrieves a single address from the API' do
     VCR.use_cassette(:single_address) do
-      response = HelloBlock::Address.find(address).to_hash
+      response = HelloBlock::Address.find(address)
 
       expect(response['status']).to eq 'success'
     end
@@ -17,7 +17,7 @@ describe HelloBlock::Address, '.where' do
 
   it 'retrieves batch addresses from the API' do
     VCR.use_cassette(:batch_addresses) do
-      response = HelloBlock::Address.where(address: [address, address]).to_hash
+      response = HelloBlock::Address.where(address: [address, address])
 
       expect(response['status']).to eq 'success'
     end
@@ -29,7 +29,7 @@ describe HelloBlock::Address, '.unspents' do
 
   it 'retrieves from the API unspents for a single address' do
     VCR.use_cassette(:single_address_unspents) do
-      response = HelloBlock::Address.find(address).unspents.to_hash
+      response = HelloBlock::Address.find(address).unspents
 
       expect(response['status']).to eq 'success'
     end
@@ -39,7 +39,7 @@ describe HelloBlock::Address, '.unspents' do
     VCR.use_cassette(:batch_address_unspents) do
       response = HelloBlock::Address.where(
         address: [address, address]
-      ).unspents.to_hash
+      ).unspents
 
       expect(response['status']).to eq 'success'
     end
@@ -49,7 +49,7 @@ describe HelloBlock::Address, '.unspents' do
     VCR.use_cassette(:batch_unspents) do
       response = HelloBlock::Address.unspents.where(
         address: [address, address]
-      ).to_hash
+      )
 
       expect(response['status']).to eq 'success'
     end
@@ -61,7 +61,7 @@ describe HelloBlock::Transaction, '.find' do
 
   it 'retrieves a single transaction from the API' do
     VCR.use_cassette(:single_transaction) do
-      response = HelloBlock::Transaction.find(tx).to_hash
+      response = HelloBlock::Transaction.find(tx)
 
       expect(response['status']).to eq 'success'
     end
@@ -74,7 +74,7 @@ describe HelloBlock::Transaction, '.where' do
 
   it 'retrieves a batch of transactions from the API' do
     VCR.use_cassette(:batch_transactions) do
-      response = HelloBlock::Transaction.where(transaction: [tx, tx]).to_hash
+      response = HelloBlock::Transaction.where(transaction: [tx, tx])
 
       expect(response['status']).to eq 'success'
     end
@@ -82,7 +82,7 @@ describe HelloBlock::Transaction, '.where' do
 
   it 'retrieves from the API a batch of transactions given several addresses' do
     VCR.use_cassette(:batch_transactions_addresses) do
-      response = HelloBlock::Transaction.where(address: [address, address]).to_hash
+      response = HelloBlock::Transaction.where(address: [address, address])
 
       expect(response['status']).to eq 'success'
     end
@@ -92,7 +92,7 @@ end
 describe HelloBlock::Transaction, '.last' do
   it 'retrieves the latest transactions from the API' do
     VCR.use_cassette(:latest_transactions) do
-      response = HelloBlock::Transaction.last(5).to_hash
+      response = HelloBlock::Transaction.last(5)
 
       expect(response['status']).to eq 'success'
     end
@@ -104,7 +104,7 @@ describe HelloBlock::Block, '.find' do
 
   it 'retrieves a block from the API' do
     VCR.use_cassette(:single_block) do
-      response = HelloBlock::Block.find(block).to_hash
+      response = HelloBlock::Block.find(block)
 
       expect(response['status']).to eq 'success'
     end
@@ -114,7 +114,7 @@ end
 describe HelloBlock::Block, '.last' do
   it 'retrieves the latest blocks from the API' do
     VCR.use_cassette(:latest_blocks) do
-      response = HelloBlock::Block.last(1).to_hash
+      response = HelloBlock::Block.last(1)
 
       expect(response['status']).to eq 'success'
     end
@@ -126,7 +126,7 @@ describe HelloBlock::Wallet, '.where' do
 
   it 'retrieves wallet information from the API' do
     VCR.use_cassette(:wallet) do
-      response = HelloBlock::Wallet.where(address: [address], unspents: false).to_hash
+      response = HelloBlock::Wallet.where(address: [address], unspents: false)
 
       expect(response['status']).to eq 'success'
     end
@@ -136,7 +136,7 @@ end
 describe HelloBlock::Faucet, '.where' do
   it 'retrieves unspents from the API faucet' do
     VCR.use_cassette(:faucet) do
-      response = HelloBlock::Faucet.where(type: 3).to_hash
+      response = HelloBlock::Faucet.where(type: 3)
 
       expect(response['status']).to eq 'success'
     end
@@ -155,7 +155,7 @@ describe HelloBlock::Transaction, '.create' do
              '6e0fa6ea5dda32c58ff699071b672e1faf88ac00000000' }
   it 'posts a new transaction to be propagated to the API' do
     VCR.use_cassette(:propagate) do
-      response = HelloBlock::Transaction.create(tx).to_hash
+      response = HelloBlock::Transaction.create(tx)
 
       expect(response['status']).to eq 'success'
     end
@@ -168,7 +168,7 @@ describe HelloBlock::Faucet, '.withdraw' do
 
   it 'posts a withdrawal to the API' do
     VCR.use_cassette(:withdrawal) do
-      response = HelloBlock::Faucet.withdraw(to: address, amount: 100_000).to_hash
+      response = HelloBlock::Faucet.withdraw(to: address, amount: 100_000)
 
       expect(response['status']).to eq 'success'
     end
