@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://testnet.helloblock.io/v1/faucet/withdrawal
+    body:
+      encoding: UTF-8
+      string: '{"body":{"toAddress":"1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej","amount":100000}}'
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 18 Mar 2014 06:14:30 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da0f34724d643f0addb99836b9f0213441395123270154; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10cf4a567c58070d-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"fail","message":"amount or toAddress is missing"}'
+    http_version: 
+  recorded_at: Tue, 18 Mar 2014 06:14:30 GMT
+recorded_with: VCR 2.8.0

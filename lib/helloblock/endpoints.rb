@@ -8,7 +8,8 @@ module HelloBlock
       latest:                 'latest',
       wallet:                 '/wallet',
       block:                  '/blocks/',
-      faucet:                 '/faucet'
+      faucet:                 '/faucet',
+      withdraw:               '/faucet/withdrawal'
     }
 
     def base_url

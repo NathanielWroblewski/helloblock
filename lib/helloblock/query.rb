@@ -46,7 +46,8 @@ module HelloBlock
 
     def to_hash
       (query_copy = query.clone) and (@query = default_query)
-      method = query_copy[:post] ? :post : :get
+      method = query_copy[:params][:post] ? :post : :get
+      query_copy[:params].delete(:post)
       HelloBlock.send(method, query_copy[:path], query_copy[:params])
     end
 

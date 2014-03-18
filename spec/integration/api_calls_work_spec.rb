@@ -161,3 +161,16 @@ describe HelloBlock::Transaction, '.create' do
     end
   end
 end
+
+
+describe HelloBlock::Faucet, '.withdraw' do
+  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
+
+  it 'posts a withdrawal to the API' do
+    VCR.use_cassette(:withdrawal) do
+      response = HelloBlock::Faucet.withdraw(to: address, amount: 100_000).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end

@@ -3,7 +3,8 @@ module HelloBlock
     API_PARAMETERS = {
       address:     :addresses,
       transaction: :txHashes,
-      propagate:   :rawTxHex
+      propagate:   :rawTxHex,
+      to:          :toAddress
     }
   end
 end
