@@ -35,7 +35,7 @@ Description  | Method
 Fetch a single address  | `HelloBlock::Address.find('1DQN9nop...').to_hash`|
 Fetch batch addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...]).to_hash` |
 Fetch unspents for address  | `HelloBlock::Address.find('1DQN9nop...').unspents.to_hash` |
-Fetch unspents for addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...]).unspents.to_hash` |
+Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(address: ['1DQN9nop...', ...]).to_hash` |
 Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...').to_hash` |
 Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...]).to_hash` |
 Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...]).to_hash` |
