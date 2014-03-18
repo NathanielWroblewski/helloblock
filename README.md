@@ -45,6 +45,7 @@ Fetch a block  | `HelloBlock::Block.find('00000...').to_hash` |
 Fetch latest block  | `HelloBlock::Block.last(1).to_hash` |
 Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false).to_hash` |
 Fetch unspents from faucet | `HelloBlock::Faucet.where(type: 3).to_hash` |
+Withdraw from faucet | `HelloBlock::Faucet.withdraw(to: '1DQN9nop...', amount: 100_000).to_hash` |
 
 ## Contributing
 
