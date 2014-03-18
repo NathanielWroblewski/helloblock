@@ -58,9 +58,18 @@ describe HelloBlock::Address, '.unspents' do
     HelloBlock::Address.to_hash
   end
 
-  it 'adds the unspents endpoint to the path' do
+  it 'adds the unspents endpoint to the path for a single address' do
     HelloBlock::Address.find(address).unspents
 
     expect(HelloBlock::Address.query[:path]).to eq "/addresses/#{address}/unspents"
+  end
+
+  it 'adds the unspents endpoint to the path for a batch of addresses' do
+    HelloBlock::Address.where(address: [address, address]).unspents
+
+    expect(HelloBlock::Address.query[:path]).to eq "/addresses/unspents"
+    expect(HelloBlock::Address.query[:params]).to eq(
+      { addresses: [address, address] }
+    )
   end
 end

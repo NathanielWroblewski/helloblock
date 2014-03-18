@@ -8,6 +8,7 @@ module HelloBlock
 
     def self.unspents
       query[:path] += ENDPOINTS[:unspents]
+      query[:path].squeeze!('/')
       self
     end
   end
