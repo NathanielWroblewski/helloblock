@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/blocks/00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 18 Mar 2014 04:36:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d3c5440a9a6d80bbe7bbbb2ac6dea82bd1395117384832; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10cebaa73fb6070d-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"block":{"blockHeight":1,"blockHash":"00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206","blockTime":1296688928,"previousBlockHash":"000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943","bits":486604799,"version":1,"merkleRootHash":"f0315ffc38709d70ad5647e22048358dd3745f3ce3874223c80a7c92fab0c8ba","nonce":1924588547,"txsCount":1,"confirmations":205360}}}'
+    http_version: 
+  recorded_at: Tue, 18 Mar 2014 04:36:25 GMT
+recorded_with: VCR 2.8.0

@@ -98,3 +98,15 @@ describe HelloBlock::Transaction, '.last' do
     end
   end
 end
+
+describe HelloBlock::Block, '.find' do
+  let(:block) { '00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206' }
+
+  it 'retrieves a block from the API' do
+    VCR.use_cassette(:single_block) do
+      response = HelloBlock::Block.find(block).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end
