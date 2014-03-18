@@ -3,6 +3,7 @@ module HelloBlock
     ENDPOINTS = {
       address:                '/addresses/',
       addresses_transactions: '/addresses/transactions',
+      unspents:               '/unspents',
       transaction:            '/transactions/',
       latest:                 'latest',
       wallet:                 '/wallet/',

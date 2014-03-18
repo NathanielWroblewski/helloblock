@@ -24,6 +24,28 @@ describe HelloBlock::Address, '.where' do
   end
 end
 
+describe HelloBlock::Address, '.unspents' do
+  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
+
+  it 'retrieves from the API unspents for a single address' do
+    VCR.use_cassette(:single_address_unspents) do
+      response = HelloBlock::Address.find(address).unspents.to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+  #
+  # it 'retrieves from the API unspents for a batch of addresses' do
+  #   VCR.use_cassette(:batch_address_unspents) do
+  #     response = HelloBlock::Address.where(
+  #       address: [address, address]
+  #     ).unspents.to_hash
+  #
+  #     expect(response['status']).to eq 'success'
+  #   end
+  # end
+end
+
 describe HelloBlock::Transaction, '.find' do
   let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
 

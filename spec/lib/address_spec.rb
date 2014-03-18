@@ -51,3 +51,16 @@ describe HelloBlock::Address, '.where' do
     )
   end
 end
+
+describe HelloBlock::Address, '.unspents' do
+  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
+  after :each do
+    HelloBlock::Address.to_hash
+  end
+
+  it 'adds the unspents endpoint to the path' do
+    HelloBlock::Address.find(address).unspents
+
+    expect(HelloBlock::Address.query[:path]).to eq "/addresses/#{address}/unspents"
+  end
+end
