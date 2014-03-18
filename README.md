@@ -40,6 +40,8 @@ Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...').to_ha
 Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...]).to_hash` |
 Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...]).to_hash` |
 Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7).to_hash` |
+Fetch a block  | `HelloBlock::Block.find('00000...').to_hash` |
+Fetch latest block  | `HelloBlock::Block.last(1).to_hash` |
 
 ## Contributing
 
