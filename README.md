@@ -1,6 +1,6 @@
 # HelloBlock
 
-Fluent ruby wrapper for the [HelloBlock](http://www.helloblock.io) API.  For a simple, non-fluent wrapper, see [helloblock-ruby](http://github.com/nathanielwroblewski/helloblock-ruby).
+Fluent ruby wrapper for the [HelloBlock](http://www.helloblock.io) API.  For a simple, non-fluent wrapper that avoids the Singleton pattern, see [helloblock-ruby](http://github.com/nathanielwroblewski/helloblock-ruby).
 
 ## Installation
 
