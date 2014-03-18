@@ -42,6 +42,7 @@ Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQ
 Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7).to_hash` |
 Fetch a block  | `HelloBlock::Block.find('00000...').to_hash` |
 Fetch latest block  | `HelloBlock::Block.last(1).to_hash` |
+Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false).to_hash` |
 
 ## Contributing
 

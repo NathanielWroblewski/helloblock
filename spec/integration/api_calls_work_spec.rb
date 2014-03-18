@@ -120,3 +120,15 @@ describe HelloBlock::Block, '.last' do
     end
   end
 end
+
+describe HelloBlock::Wallet, '.where' do
+  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
+
+  it 'retrieves wallet information from the API' do
+    VCR.use_cassette(:wallet) do
+      response = HelloBlock::Wallet.where(address: [address], unspents: false).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end

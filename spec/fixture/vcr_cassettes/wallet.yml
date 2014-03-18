@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/wallet/?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&unspents=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 18 Mar 2014 05:29:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dbfba24a421ecf15b658e207e8ec8ec741395120564421; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10cf0847a4f80651-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"summary":{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0},"addresses":[{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"}]}}'
+    http_version: 
+  recorded_at: Tue, 18 Mar 2014 05:29:36 GMT
+recorded_with: VCR 2.8.0
