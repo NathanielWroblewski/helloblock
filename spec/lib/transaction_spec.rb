@@ -83,3 +83,24 @@ describe HelloBlock::Transaction, '.offset' do
     expect(HelloBlock::Transaction.query[:params]).to eq({ offset: 5 })
   end
 end
+
+describe HelloBlock::Transaction, '.create' do
+  let(:tx) { '0100000001ec71e2ceac8476bea21fbc4a97062c000f07def6c8ef8d917' +
+             '1fb1a5e113418e0010000008c493046022100e6f39b4393794ef03b0f9d' +
+             'c71395e0835a211015b42ab4329cb6a6c1c8b3c6ea022100f1ccae451f3' +
+             '5e5c5ad25a8f7e7b5e778bafc4dc69dd560fab1cbadbb88767916014104' +
+             'e1934263e84e202ebffca95246b63c18c07cd369c4f02de76dbd1db89e6' +
+             '255dacb3ab1895af0422e24e1d1099e80f01b899cfcdf9b947575352dbc' +
+             '1af57466b5ffffffff0210270000000000001976a914652c453e3f8768d' +
+             '6d6e1f2985cb8939db91a4e0588ace065f81f000000001976a914cf0dfe' +
+             '6e0fa6ea5dda32c58ff699071b672e1faf88ac00000000' }
+  after :each do
+    HelloBlock::Transaction.to_hash
+  end
+
+  it 'sets the raw transaction hex in the parameters' do
+    HelloBlock::Transaction.create(tx)
+
+    expect(HelloBlock::Transaction.query[:params]).to eq({ rawTxHex: tx })
+  end
+end
