@@ -22,9 +22,9 @@ Configure your HelloBlock session:
 
 ```rb
 HelloBlock.configure do |config|
-  config.api_key = 'APIKEY' # your api key goes here
-  config.version = :v1      # defaults to latest version
-  config.network = :mainnet # defaults to testnet
+  config.api_key = ENV['APIKEY'] # your api key goes here
+  config.version = :v1           # defaults to latest version
+  config.network = :mainnet      # defaults to testnet
 end
 ```
 
