@@ -110,3 +110,13 @@ describe HelloBlock::Block, '.find' do
     end
   end
 end
+
+describe HelloBlock::Block, '.last' do
+  it 'retrieves the latest blocks from the API' do
+    VCR.use_cassette(:latest_blocks) do
+      response = HelloBlock::Block.last(1).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end
