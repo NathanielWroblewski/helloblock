@@ -1,5 +1,5 @@
-require 'helloblock/query'
-require 'helloblock/endpoints'
+require 'helloblock/resources/query'
+require 'helloblock/api_interface/endpoints'
 
 module HelloBlock
   class Address

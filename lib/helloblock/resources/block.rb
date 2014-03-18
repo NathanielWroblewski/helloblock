@@ -1,4 +1,4 @@
-require 'helloblock/query'
+require 'helloblock/resources/query'
 
 module HelloBlock
   class Block

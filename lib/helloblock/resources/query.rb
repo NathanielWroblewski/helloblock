@@ -1,5 +1,5 @@
-require 'helloblock/endpoints'
-require 'helloblock/api_parameters'
+require 'helloblock/api_interface/endpoints'
+require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
   module Query

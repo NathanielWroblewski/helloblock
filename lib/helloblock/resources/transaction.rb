@@ -1,5 +1,5 @@
-require 'helloblock/query'
-require 'helloblock/api_parameters'
+require 'helloblock/resources/query'
+require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
   class Transaction

@@ -1,4 +1,4 @@
-require 'helloblock/endpoints'
+require 'helloblock/api_interface/endpoints'
 
 module HelloBlock
   module Request
