@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/addresses/unspents?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&addresses%5B1%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Tue, 18 Mar 2014 04:27:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d184f170bef0f2f183f6cc9dc9277f66b1395116834466; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Access-Control-Allow-Origin:
+      - '*'
+      Etag:
+      - '"-1484056770"'
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 10cead376afc070d-SJC
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"unspents":[]}}'
+    http_version: 
+  recorded_at: Tue, 18 Mar 2014 04:27:14 GMT
+recorded_with: VCR 2.8.0

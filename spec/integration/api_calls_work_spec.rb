@@ -44,6 +44,16 @@ describe HelloBlock::Address, '.unspents' do
       expect(response['status']).to eq 'success'
     end
   end
+
+  it 'retrieves from the API unspents for a batch of addresses regardless of placement' do
+    VCR.use_cassette(:batch_unspents) do
+      response = HelloBlock::Address.unspents.where(
+        address: [address, address]
+      ).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
 end
 
 describe HelloBlock::Transaction, '.find' do
