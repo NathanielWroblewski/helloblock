@@ -132,3 +132,13 @@ describe HelloBlock::Wallet, '.where' do
     end
   end
 end
+
+describe HelloBlock::Faucet, '.where' do
+  it 'retrieves unspents from the API faucet' do
+    VCR.use_cassette(:faucet) do
+      response = HelloBlock::Faucet.where(type: 3).to_hash
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end

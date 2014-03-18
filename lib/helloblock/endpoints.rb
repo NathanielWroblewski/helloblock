@@ -6,9 +6,9 @@ module HelloBlock
       unspents:               '/unspents',
       transaction:            '/transactions/',
       latest:                 'latest',
-      wallet:                 '/wallet/',
+      wallet:                 '/wallet',
       block:                  '/blocks/',
-      faucet:                 '/faucet/'
+      faucet:                 '/faucet'
     }
 
     def base_url
