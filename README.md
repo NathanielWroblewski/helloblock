@@ -1,5 +1,7 @@
 # HelloBlock
 
+[![Code Climate](https://codeclimate.com/github/NathanielWroblewski/helloblock.png)](https://codeclimate.com/github/NathanielWroblewski/helloblock)
+
 Fluent ruby wrapper for the [HelloBlock](http://www.helloblock.io) API.  For a simple, non-fluent wrapper that avoids the Singleton pattern, see [helloblock-ruby](http://github.com/nathanielwroblewski/helloblock-ruby).
 
 ## Installation
