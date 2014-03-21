@@ -9,7 +9,8 @@ module HelloBlock
       wallet:                 '/wallet',
       block:                  '/blocks/',
       faucet:                 '/faucet',
-      withdraw:               '/faucet/withdrawal'
+      withdraw:               '/faucet/withdrawal',
+      rpc:                    '/getrawtransaction'
     }
 
     def base_url

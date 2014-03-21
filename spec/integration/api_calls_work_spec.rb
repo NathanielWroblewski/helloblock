@@ -174,3 +174,16 @@ describe HelloBlock::Faucet, '.withdraw' do
     end
   end
 end
+
+
+describe HelloBlock::RPC, '.where' do
+  let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
+
+  it 'hits a temporary api endpoint for compatibility with bitcoin ruby' do
+    VCR.use_cassette(:rpc) do
+      response = HelloBlock::RPC.where(transaction: [tx, tx])
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+end

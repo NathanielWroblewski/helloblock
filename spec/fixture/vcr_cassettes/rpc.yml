@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet.helloblock.io/v1/getrawtransaction?txHashes%5B0%5D=f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700&txHashes%5B1%5D=f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - HelloBlock Gem 0.0.1
+      Content-Type:
+      - application/json; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 21 Mar 2014 03:25:04 GMT
+      Etag:
+      - '"-1541430146"'
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '1130'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","data":{"transactions":[{"txHash":"f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700","rawTxHex":"0100000001a6ff3ed4a04fdc81630172c202e5eb3fcf5acb7651a1c233a1057728db550816010000006a47304402204bcc88caaefba54dfd2c7494af1898fa85af2cd0ece2070db618a9d3711772ce02201fd92149c149ebd9451a50013ef3e197e7e701283d5c25808ef0a3f933ab33e50121025c1ad4bc312481611e783751b8fc4de830a4436c129c4b82d704e728f3a5c1a3ffffffff02905f0100000000001976a914c081d02953f84ab9cb7aff43a845afb689d0c7ed88ac403d7800000000001976a914e64bae89305148c4098b1117594f802bcfcafdab88ac00000000"},{"txHash":"f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700","rawTxHex":"0100000001a6ff3ed4a04fdc81630172c202e5eb3fcf5acb7651a1c233a1057728db550816010000006a47304402204bcc88caaefba54dfd2c7494af1898fa85af2cd0ece2070db618a9d3711772ce02201fd92149c149ebd9451a50013ef3e197e7e701283d5c25808ef0a3f933ab33e50121025c1ad4bc312481611e783751b8fc4de830a4436c129c4b82d704e728f3a5c1a3ffffffff02905f0100000000001976a914c081d02953f84ab9cb7aff43a845afb689d0c7ed88ac403d7800000000001976a914e64bae89305148c4098b1117594f802bcfcafdab88ac00000000"}]}}'
+    http_version: 
+  recorded_at: Fri, 21 Mar 2014 03:25:04 GMT
+recorded_with: VCR 2.8.0
