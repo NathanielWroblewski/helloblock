@@ -42,7 +42,7 @@ Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...')` |
 Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...])` |
 Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...])` |
 Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7)` |
-Propagate a transaction  | `HelloBlock::Transaction.create('01000...')` |
+Propagate a transaction  | `HelloBlock::Transaction.propagate('01000...')` |
 Fetch a block  | `HelloBlock::Block.find('00000...')` |
 Fetch latest block  | `HelloBlock::Block.last(1)` |
 Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false)` |
