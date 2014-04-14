@@ -59,13 +59,13 @@ describe HelloBlock::Transaction, '.where' do
 end
 
 
-describe HelloBlock::Transaction, '.last' do
+describe HelloBlock::Transaction, '.limit' do
   after :each do
     HelloBlock::Transaction.inspect
   end
 
   it 'changes the path to the latest transactions path and passes a limit' do
-    HelloBlock::Transaction.last(5)
+    HelloBlock::Transaction.limit(5)
 
     expect(HelloBlock::Transaction.query[:path]).to eq '/transactions/latest'
     expect(HelloBlock::Transaction.query[:params]).to eq({ limit: 5 })

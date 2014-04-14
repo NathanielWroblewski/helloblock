@@ -89,10 +89,10 @@ describe HelloBlock::Transaction, '.where' do
   end
 end
 
-describe HelloBlock::Transaction, '.last' do
+describe HelloBlock::Transaction, '.limit' do
   it 'retrieves the latest transactions from the API' do
     VCR.use_cassette(:latest_transactions) do
-      response = HelloBlock::Transaction.last(5)
+      response = HelloBlock::Transaction.limit(5)
 
       expect(response['status']).to eq 'success'
     end
@@ -111,10 +111,10 @@ describe HelloBlock::Block, '.find' do
   end
 end
 
-describe HelloBlock::Block, '.last' do
+describe HelloBlock::Block, '.limit' do
   it 'retrieves the latest blocks from the API' do
     VCR.use_cassette(:latest_blocks) do
-      response = HelloBlock::Block.last(1)
+      response = HelloBlock::Block.limit(1)
 
       expect(response['status']).to eq 'success'
     end

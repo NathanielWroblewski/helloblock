@@ -33,7 +33,7 @@ module HelloBlock
       self
     end
 
-    def last(limit)
+    def limit(limit)
       query[:path] = ENDPOINTS[parent_class] + ENDPOINTS[:latest]
       query[:params][:limit] = limit
       self

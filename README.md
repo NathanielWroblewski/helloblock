@@ -41,10 +41,10 @@ Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(address: ['1
 Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...')` |
 Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...])` |
 Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...])` |
-Fetch latest transactions  | `HelloBlock::Transaction.last(5).offset(7)` |
+Fetch latest transactions  | `HelloBlock::Transaction.limit(5).offset(7)` |
 Propagate a transaction  | `HelloBlock::Transaction.propagate('01000...')` |
 Fetch a block  | `HelloBlock::Block.find('00000...')` |
-Fetch latest block  | `HelloBlock::Block.last(1)` |
+Fetch latest block  | `HelloBlock::Block.limit(1)` |
 Fetch wallet information | `HelloBlock::Wallet.where(addresses: [...], unspents: false)` |
 Fetch unspents from faucet | `HelloBlock::Faucet.where(type: 3)` |
 Withdraw from faucet | `HelloBlock::Faucet.withdraw(to: '1DQN9nop...', amount: 100_000)` |
