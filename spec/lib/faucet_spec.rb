@@ -20,11 +20,11 @@ describe HelloBlock::Faucet, '.withdraw' do
   end
 
   it 'adds the type to the params' do
-    HelloBlock::Faucet.withdraw(to: address, amount: 100_000)
+    HelloBlock::Faucet.withdraw(to: address, value: 100_000)
 
     expect(HelloBlock::Faucet.query[:path]).to eq '/faucet/withdrawal'
     expect(HelloBlock::Faucet.query[:params]).to eq(
-      { toAddress: address, amount: 100_000, post: true }
+      { toAddress: address, value: 100_000, post: true }
     )
   end
 end

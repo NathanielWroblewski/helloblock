@@ -5,41 +5,36 @@ http_interactions:
     uri: http://testnet.helloblock.io/v1/faucet/withdrawal
     body:
       encoding: UTF-8
-      string: '{"body":{"toAddress":"1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej","amount":100000}}'
+      string: '{"toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","value":100000}'
     headers:
       Accept:
       - '*/*'
       User-Agent:
-      - HelloBlock Gem 0.0.1
+      - HelloBlock Gem 0.0.2
       Content-Type:
       - application/json; charset=UTF-8
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
-      Server:
-      - cloudflare-nginx
-      Date:
-      - Tue, 18 Mar 2014 06:14:30 GMT
+      Access-Control-Allow-Origin:
+      - '*'
       Content-Type:
       - application/json; charset=utf-8
-      Content-Length:
-      - '60'
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=da0f34724d643f0addb99836b9f0213441395123270154; expires=Mon, 23-Dec-2019
-        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Date:
+      - Mon, 14 Apr 2014 04:46:06 GMT
       X-Powered-By:
       - Express
-      Cf-Ray:
-      - 10cf4a567c58070d-SJC
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"status":"fail","message":"amount or toAddress is missing"}'
+      string: '{"status":"success","data":{"value":100000,"fromAddress":"mpRZxxp5FtmQipEWJPa1NY9FmPsva3exUd","toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","txHash":"d6b824a37c608e45e05ad7a2810002ce000225581fd053fe52d70568884f3fef"}}'
     http_version: 
-  recorded_at: Tue, 18 Mar 2014 06:14:30 GMT
+  recorded_at: Mon, 14 Apr 2014 04:46:06 GMT
 recorded_with: VCR 2.8.0

@@ -32,7 +32,7 @@ describe HelloBlock::Request, '.post' do
     HelloBlock.post('/bananas/', {})
 
     expect(connection).to have_received(:post).with(
-      '/v1/bananas/', { body: {} }, {
+      '/v1/bananas/', {}, {
           accept: '*/*',
           content_type: 'application/json; charset=UTF-8'
         }

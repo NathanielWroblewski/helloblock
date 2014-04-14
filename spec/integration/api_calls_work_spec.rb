@@ -143,19 +143,17 @@ describe HelloBlock::Faucet, '.where' do
   end
 end
 
-describe HelloBlock::Transaction, '.create' do
-  let(:tx) { '0100000001ec71e2ceac8476bea21fbc4a97062c000f07def6c8ef8d917' +
-             '1fb1a5e113418e0010000008c493046022100e6f39b4393794ef03b0f9d' +
-             'c71395e0835a211015b42ab4329cb6a6c1c8b3c6ea022100f1ccae451f3' +
-             '5e5c5ad25a8f7e7b5e778bafc4dc69dd560fab1cbadbb88767916014104' +
-             'e1934263e84e202ebffca95246b63c18c07cd369c4f02de76dbd1db89e6' +
-             '255dacb3ab1895af0422e24e1d1099e80f01b899cfcdf9b947575352dbc' +
-             '1af57466b5ffffffff0210270000000000001976a914652c453e3f8768d' +
-             '6d6e1f2985cb8939db91a4e0588ace065f81f000000001976a914cf0dfe' +
-             '6e0fa6ea5dda32c58ff699071b672e1faf88ac00000000' }
+describe HelloBlock::Transaction, '.propagate' do
+  let(:tx) { '0100000001dfcc651d60fae6f086fba5a6d2729cfea5cb867f4c1bca' +
+             '25192fcb60823490d6000000006b483045022100a7a7194ca4329369' +
+             '3249ccbe5bbb54efb17d22dcbfdd27c47fec1c6f2287553b02204eb7' +
+             '873322565308b06cc8a9e43c68c987d5d7eec570b2e135625c0fbe4b' +
+             '286101210355b6182f1d4ce3caad921d6abf37a20143c49f492ea606' +
+             'e8f66d0d291b0d4ab3ffffffff0110270000000000001976a91439a9' +
+             'becbf4c55b7346de80e307596901a3491c9c88ac00000000' }
   it 'posts a new transaction to be propagated to the API' do
     VCR.use_cassette(:propagate) do
-      response = HelloBlock::Transaction.create(tx)
+      response = HelloBlock::Transaction.propagate(tx)
 
       expect(response['status']).to eq 'success'
     end
@@ -164,11 +162,11 @@ end
 
 
 describe HelloBlock::Faucet, '.withdraw' do
-  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
+  let(:address) { 'mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL' }
 
   it 'posts a withdrawal to the API' do
     VCR.use_cassette(:withdrawal) do
-      response = HelloBlock::Faucet.withdraw(to: address, amount: 100_000)
+      response = HelloBlock::Faucet.withdraw(to: address, value: 100_000)
 
       expect(response['status']).to eq 'success'
     end

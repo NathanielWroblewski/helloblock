@@ -6,9 +6,10 @@ module HelloBlock
     extend HelloBlock::Query
     include HelloBlock::APIParameters
 
-    def self.create(raw_tx_hex)
+    def self.propagate(raw_tx_hex)
       api_parameter = API_PARAMETERS[:propagate]
       query[:params][api_parameter] = raw_tx_hex
+      query[:params][:post] = true
       self
     end
   end

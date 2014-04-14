@@ -10,7 +10,7 @@ module HelloBlock
     end
 
     def post(path, params={})
-      request(:post, version_path + path, { body: params }, headers)
+      request(:post, version_path + path, params, headers)
     end
 
     private
