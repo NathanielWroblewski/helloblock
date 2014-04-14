@@ -17,7 +17,7 @@ describe HelloBlock::Address, '.where' do
 
   it 'retrieves batch addresses from the API' do
     VCR.use_cassette(:batch_addresses) do
-      response = HelloBlock::Address.where(address: [address, address])
+      response = HelloBlock::Address.where(addresses: [address, address])
 
       expect(response['status']).to eq 'success'
     end
@@ -38,7 +38,7 @@ describe HelloBlock::Address, '.unspents' do
   it 'retrieves from the API unspents for a batch of addresses' do
     VCR.use_cassette(:batch_address_unspents) do
       response = HelloBlock::Address.where(
-        address: [address, address]
+        addresses: [address, address]
       ).unspents
 
       expect(response['status']).to eq 'success'
@@ -48,7 +48,7 @@ describe HelloBlock::Address, '.unspents' do
   it 'retrieves from the API unspents for a batch of addresses regardless of placement' do
     VCR.use_cassette(:batch_unspents) do
       response = HelloBlock::Address.unspents.where(
-        address: [address, address]
+        addresses: [address, address]
       )
 
       expect(response['status']).to eq 'success'
@@ -74,7 +74,7 @@ describe HelloBlock::Transaction, '.where' do
 
   it 'retrieves a batch of transactions from the API' do
     VCR.use_cassette(:batch_transactions) do
-      response = HelloBlock::Transaction.where(transaction: [tx, tx])
+      response = HelloBlock::Transaction.where(tx_hashes: [tx, tx])
 
       expect(response['status']).to eq 'success'
     end
@@ -82,7 +82,7 @@ describe HelloBlock::Transaction, '.where' do
 
   it 'retrieves from the API a batch of transactions given several addresses' do
     VCR.use_cassette(:batch_transactions_addresses) do
-      response = HelloBlock::Transaction.where(address: [address, address])
+      response = HelloBlock::Transaction.where(addresses: [address, address])
 
       expect(response['status']).to eq 'success'
     end
@@ -126,7 +126,7 @@ describe HelloBlock::Wallet, '.where' do
 
   it 'retrieves wallet information from the API' do
     VCR.use_cassette(:wallet) do
-      response = HelloBlock::Wallet.where(address: [address], unspents: false)
+      response = HelloBlock::Wallet.where(addresses: [address], unspents: false)
 
       expect(response['status']).to eq 'success'
     end
@@ -179,7 +179,7 @@ describe HelloBlock::RPC, '.where' do
 
   it 'hits a temporary api endpoint for compatibility with bitcoin ruby' do
     VCR.use_cassette(:rpc) do
-      response = HelloBlock::RPC.where(transaction: [tx, tx])
+      response = HelloBlock::RPC.where(tx_hashes: [tx, tx])
 
       expect(response['status']).to eq 'success'
     end

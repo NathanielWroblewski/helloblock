@@ -7,7 +7,7 @@ describe HelloBlock::RPC, '.where' do
   end
 
   it 'uses a temporary api endpoint for bitcoin ruby compatibility' do
-    HelloBlock::RPC.where(transaction: [tx, tx])
+    HelloBlock::RPC.where(tx_hashes: [tx, tx])
 
     expect(HelloBlock::RPC.query[:path]).to eq '/getrawtransaction'
     expect(HelloBlock::RPC.query[:params]).to eq({ txHashes: [tx, tx]})

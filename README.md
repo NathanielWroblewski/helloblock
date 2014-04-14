@@ -35,12 +35,12 @@ Query the HelloBlock API with familiar [ActiveRecord](https://github.com/rails/r
 Description  | Method
 ------------- | ------------- |
 Fetch a single address  | `HelloBlock::Address.find('1DQN9nop...')`|
-Fetch batch addresses  | `HelloBlock::Address.where(address: ['1DQN9nop...', ...])` |
+Fetch batch addresses  | `HelloBlock::Address.where(addresses: ['1DQN9nop...', ...])` |
 Fetch unspents for address  | `HelloBlock::Address.find('1DQN9nop...').unspents` |
-Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(address: ['1DQN9nop...', ...])` |
+Fetch unspents for addresses  | `HelloBlock::Address.unspents.where(addresses: ['1DQN9nop...', ...])` |
 Fetch a single transaction  | `HelloBlock::Transaction.find('f37e6181...')` |
-Fetch batch transactions  | `HelloBlock::Transaction.where(transaction: ['f37e6181...', ...])` |
-Fetch transactions by addresses  | `HelloBlock::Transaction.where(address: ['1DQN9nop...', ...])` |
+Fetch batch transactions  | `HelloBlock::Transaction.where(tx_hashes: ['f37e6181...', ...])` |
+Fetch transactions by addresses  | `HelloBlock::Transaction.where(addresses: ['1DQN9nop...', ...])` |
 Fetch latest transactions  | `HelloBlock::Transaction.limit(5).offset(7)` |
 Propagate a transaction  | `HelloBlock::Transaction.propagate('01000...')` |
 Fetch a block  | `HelloBlock::Block.find('00000...')` |

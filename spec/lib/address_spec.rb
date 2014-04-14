@@ -43,7 +43,7 @@ describe HelloBlock::Address, '.where' do
   it 'adds a batch of specific addresses to the params' do
     HelloBlock.stub(:connection).and_return(connection)
 
-    response = HelloBlock::Address.where(address: [address, address])
+    response = HelloBlock::Address.where(addresses: [address, address])
 
     response['status'] # kick the query
 
@@ -67,7 +67,7 @@ describe HelloBlock::Address, '.unspents' do
   end
 
   it 'adds the unspents endpoint to the path for a batch of addresses' do
-    HelloBlock::Address.where(address: [address, address]).unspents
+    HelloBlock::Address.where(addresses: [address, address]).unspents
 
     expect(HelloBlock::Address.query[:path]).to eq "/addresses/unspents"
     expect(HelloBlock::Address.query[:params]).to eq(

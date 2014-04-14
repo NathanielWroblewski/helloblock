@@ -41,7 +41,7 @@ describe HelloBlock::Transaction, '.where' do
   end
 
   it 'adds a batch of transaction hashes to the params and alters the path' do
-    HelloBlock::Transaction.where(transaction: [tx, tx])
+    HelloBlock::Transaction.where(tx_hashes: [tx, tx])
 
     expect(HelloBlock::Transaction.query[:params]).to eq(
       txHashes: [tx, tx]
@@ -49,7 +49,7 @@ describe HelloBlock::Transaction, '.where' do
   end
 
   it 'adds a batch of addresses to the params' do
-    HelloBlock::Transaction.where(address: [address, address])
+    HelloBlock::Transaction.where(addresses: [address, address])
 
     expect(HelloBlock::Transaction.query[:path]).to eq '/addresses/transactions'
     expect(HelloBlock::Transaction.query[:params]).to eq(

@@ -23,7 +23,7 @@ module HelloBlock
       self
     end
 
-    # where(transaction: [...]) => converts :transaction to API's :txHashes
+    # where(tx_hashes: [...]) => converts :transaction to API's :txHashes
     def where(conditions)
       conditions.each do |resource, ids|
         api_resource = API_PARAMETERS[resource] || resource
