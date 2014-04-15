@@ -39,6 +39,8 @@ module HelloBlock
       self
     end
 
+    alias_method :last, :limit
+
     def offset(number)
       query[:params][:offset] = number
       self

@@ -97,6 +97,14 @@ describe HelloBlock::Transaction, '.limit' do
       expect(response['status']).to eq 'success'
     end
   end
+
+  it 'retrieves the latest transactions using alias_method :last' do
+    VCR.use_cassette(:latest_transactions) do
+      response = HelloBlock::Transaction.last(5)
+
+      expect(response['status']).to eq 'success'
+    end
+  end
 end
 
 describe HelloBlock::Block, '.find' do
@@ -154,6 +162,14 @@ describe HelloBlock::Transaction, '.propagate' do
   it 'posts a new transaction to be propagated to the API' do
     VCR.use_cassette(:propagate) do
       response = HelloBlock::Transaction.propagate(tx)
+
+      expect(response['status']).to eq 'success'
+    end
+  end
+
+  it 'propagates using alias_method :create' do
+    VCR.use_cassette(:propagate) do
+      response = HelloBlock::Transaction.create(tx)
 
       expect(response['status']).to eq 'success'
     end

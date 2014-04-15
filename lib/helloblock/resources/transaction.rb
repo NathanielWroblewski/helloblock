@@ -12,5 +12,8 @@ module HelloBlock
       query[:params][:post] = true
       self
     end
+
+    # Class Method Alias
+    self.singleton_class.send(:alias_method, :create, :propagate)
   end
 end
