@@ -2,14 +2,24 @@ require 'helloblock/resources/query'
 require 'helloblock/api_interface/endpoints'
 
 module HelloBlock
-  class Address
-    extend HelloBlock::Query
-    include HelloBlock::Endpoints
+	class Address < HelloBlock::Query
+		include HelloBlock::Endpoints
+		extend HelloBlock::Endpoints
 
-    def self.unspents
-      query[:path] += ENDPOINTS[:unspents]
-      query[:path].squeeze!('/')
-      self
-    end
-  end
+		class << self
+			def unspents
+				addressQuery = self.new
+				addressQuery.query[:path] += ENDPOINTS[:unspents]
+				addressQuery.query[:path].squeeze!('/')
+				addressQuery
+			end
+		end
+
+		def unspents
+			self.query[:path] += ENDPOINTS[:unspents]
+			self.query[:path].squeeze!('/')
+			self
+		end
+
+	end
 end

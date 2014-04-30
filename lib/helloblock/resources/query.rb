@@ -2,24 +2,53 @@ require 'helloblock/api_interface/endpoints'
 require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
-  module Query
+  class Query
+    attr_accessor :query, :executed, :result
     include HelloBlock::Endpoints
+    extend HelloBlock::Endpoints
     include HelloBlock::APIParameters
+    extend HelloBlock::APIParameters
 
-    def query
-      @query ||= default_query
-    end
-
-    def default_query
-      { path: ENDPOINTS[parent_class], params: {} }
+    def initialize
+      @query = { path: ENDPOINTS[parent_class], params: {} }
+      @executed = false
+      @result = {}
     end
 
     def parent_class
-      self.to_s.split('::').last.downcase.to_sym
+      self.class.to_s.split('::').last.downcase.to_sym
+    end
+
+    class << self
+      def parent_class
+        self.to_s.split('::').last.downcase.to_sym
+      end
+
+      def find(id)
+        hbQuery = self.new
+        hbQuery.find(id)
+      end
+
+      def where(conditions)
+        hbQuery = self.new
+        hbQuery.where(conditions)
+      end
+
+      def limit(limit)
+        hbQuery = self.new
+        hbQuery.limit(limit)
+      end
+
+      def offset(number)
+        hbQuery = self.new
+        hbQuery.offset(number)
+      end
+
+      alias_method :last, :limit
     end
 
     def find(id)
-      query[:path] += id
+      self.query[:path] += id
       self
     end
 
@@ -34,23 +63,28 @@ module HelloBlock
     end
 
     def limit(limit)
-      query[:path] = ENDPOINTS[parent_class] + ENDPOINTS[:latest]
-      query[:params][:limit] = limit
+      self.query[:path] = ENDPOINTS[parent_class] + ENDPOINTS[:latest]
+      self.query[:params][:limit] = limit
       self
     end
 
     alias_method :last, :limit
 
     def offset(number)
-      query[:params][:offset] = number
+      self.query[:params][:offset] = number
       self
     end
 
     def to_hash
-      (query_copy = query.clone) and (@query = default_query)
+      if self.executed == true
+        return self.result
+      end
+
+      query_copy = query.clone
       method = query_copy[:params][:post] ? :post : :get
       query_copy[:params].delete(:post)
-      HelloBlock.send(method, query_copy[:path], query_copy[:params])
+      self.executed = true
+      self.result = HelloBlock.send(method, query_copy[:path], query_copy[:params])
     end
 
     def [](attribute)
@@ -68,8 +102,8 @@ module HelloBlock
     # exceptions: querying transactions with addresses actually hits
     # /addresses/transactions endpoint
     def determine_parent_resource
-      if query[:path] == ENDPOINTS[:transaction] && query[:params][:addresses]
-        query[:path] = ENDPOINTS[:addresses_transactions]
+      if self.query[:path] == ENDPOINTS[:transaction] && self.query[:params][:addresses]
+        self.query[:path] = ENDPOINTS[:addresses_transactions]
       end
     end
   end

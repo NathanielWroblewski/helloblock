@@ -1,7 +1,6 @@
 require 'helloblock/resources/query'
 
 module HelloBlock
-  class Wallet
-    extend HelloBlock::Query
+  class Wallet < HelloBlock::Query
   end
 end

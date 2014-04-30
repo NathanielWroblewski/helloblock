@@ -2,15 +2,17 @@ require 'helloblock/resources/query'
 require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
-  class Transaction
-    extend HelloBlock::Query
+  class Transaction < HelloBlock::Query
     include HelloBlock::APIParameters
 
-    def self.propagate(raw_tx_hex)
-      api_parameter = API_PARAMETERS[:propagate]
-      query[:params][api_parameter] = raw_tx_hex
-      query[:params][:post] = true
-      self
+    class << self
+      def propagate(raw_tx_hex)
+        txQuery = self.new
+        api_parameter = API_PARAMETERS[:propagate]
+        txQuery.query[:params][api_parameter] = raw_tx_hex
+        txQuery.query[:params][:post] = true
+        txQuery
+      end
     end
 
     # Class Method Alias
