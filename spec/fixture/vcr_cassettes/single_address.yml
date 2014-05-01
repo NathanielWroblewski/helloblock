@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://testnet.helloblock.io/v1/addresses/1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    uri: http://mainnet.helloblock.io/v1/addresses/1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - '*/*'
       User-Agent:
-      - HelloBlock Gem 0.0.1
+      - HelloBlock Gem 0.0.2
       Content-Type:
       - application/json; charset=UTF-8
       Accept-Encoding:
@@ -21,27 +21,26 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - cloudflare-nginx
-      Date:
-      - Mon, 17 Mar 2014 16:46:09 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      - Cowboy
+      Via:
+      - vegur
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d522542990ab83b2ea35755ea3da3ac561395074768841; expires=Mon, 23-Dec-2019
-        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Date:
+      - Thu, 01 May 2014 02:37:16 GMT
+      Etag:
+      - '"-661644165"'
+      Content-Length:
+      - '229'
+      Content-Type:
+      - application/json; charset=utf-8
       Access-Control-Allow-Origin:
       - '*'
       X-Powered-By:
       - Express
-      Cf-Ray:
-      - 10caaa3942ca0651-SJC
     body:
       encoding: UTF-8
-      string: '{"status":"success","data":{"address":{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"msvKSqto5wsSztpf3qzJweFR7tP76etSew","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9"}}}'
+      string: '{"status":"success","data":{"address":{"balance":0,"confirmedBalance":0,"txsCount":0,"confirmedTxsCount":0,"address":"1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej","hash160":"880cbba2942bc34739fbd2d8d792a6ce607ef3b9","type":"pubkeyhash"}}}'
     http_version: 
-  recorded_at: Mon, 17 Mar 2014 16:46:10 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Thu, 01 May 2014 02:37:16 GMT
+recorded_with: VCR 2.9.0

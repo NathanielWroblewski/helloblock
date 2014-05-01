@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://testnet.helloblock.io/v1/blocks/00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206
+    uri: http://mainnet.helloblock.io/v1/blocks/000000009b7262315dbf071787ad3656097b892abffd1f95a1a022f896f533fc
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - '*/*'
       User-Agent:
-      - HelloBlock Gem 0.0.1
+      - HelloBlock Gem 0.0.2
       Content-Type:
       - application/json; charset=UTF-8
       Accept-Encoding:
@@ -21,27 +21,26 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - cloudflare-nginx
-      Date:
-      - Tue, 18 Mar 2014 04:36:25 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      - Cowboy
+      Via:
+      - vegur
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d3c5440a9a6d80bbe7bbbb2ac6dea82bd1395117384832; expires=Mon, 23-Dec-2019
-        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Date:
+      - Thu, 01 May 2014 02:37:19 GMT
+      Etag:
+      - '"-667350318"'
+      Content-Length:
+      - '408'
+      Content-Type:
+      - application/json; charset=utf-8
       Access-Control-Allow-Origin:
       - '*'
       X-Powered-By:
       - Express
-      Cf-Ray:
-      - 10cebaa73fb6070d-SJC
     body:
       encoding: UTF-8
-      string: '{"status":"success","data":{"block":{"blockHeight":1,"blockHash":"00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206","blockTime":1296688928,"previousBlockHash":"000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943","bits":486604799,"version":1,"merkleRootHash":"f0315ffc38709d70ad5647e22048358dd3745f3ce3874223c80a7c92fab0c8ba","nonce":1924588547,"txsCount":1,"confirmations":205360}}}'
+      string: '{"status":"success","data":{"block":{"blockHeight":5,"blockHash":"000000009b7262315dbf071787ad3656097b892abffd1f95a1a022f896f533fc","blockTime":1231471428,"prevBlockHash":"000000004ebadb55ee9096c9a2f8880e09da59c0d68b1c228da88e48844a1485","bits":486604799,"version":1,"merkleRootHash":"63522845d294ee9b0188ae5cac91bf389a0c3723f084ca1025e7d9cdfe481ce1","nonce":2011431709,"txsCount":1,"confirmations":298529}}}'
     http_version: 
-  recorded_at: Tue, 18 Mar 2014 04:36:25 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Thu, 01 May 2014 02:37:19 GMT
+recorded_with: VCR 2.9.0

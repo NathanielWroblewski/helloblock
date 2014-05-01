@@ -5,7 +5,7 @@ http_interactions:
     uri: http://testnet.helloblock.io/v1/faucet/withdrawal
     body:
       encoding: UTF-8
-      string: '{"toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","value":100000}'
+      string: '{"toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","value":100000,"post":true}'
     headers:
       Accept:
       - '*/*'
@@ -20,21 +20,25 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 14 Apr 2014 04:46:06 GMT
-      X-Powered-By:
-      - Express
-      Content-Length:
-      - '220'
+      Server:
+      - Cowboy
+      Via:
+      - vegur
       Connection:
       - keep-alive
+      Content-Length:
+      - '220'
+      Date:
+      - Thu, 01 May 2014 02:36:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Powered-By:
+      - Express
     body:
       encoding: UTF-8
-      string: '{"status":"success","data":{"value":100000,"fromAddress":"mpRZxxp5FtmQipEWJPa1NY9FmPsva3exUd","toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","txHash":"d6b824a37c608e45e05ad7a2810002ce000225581fd053fe52d70568884f3fef"}}'
+      string: '{"status":"success","data":{"value":100000,"fromAddress":"mpRZxxp5FtmQipEWJPa1NY9FmPsva3exUd","toAddress":"mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL","txHash":"da29e926c4495bdd7ba3931e93070ad96b7b17b607510807ae95ec12f29d7311"}}'
     http_version: 
-  recorded_at: Mon, 14 Apr 2014 04:46:06 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Thu, 01 May 2014 02:36:10 GMT
+recorded_with: VCR 2.9.0

@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - '*/*'
       User-Agent:
-      - HelloBlock Gem 0.0.1
+      - HelloBlock Gem 0.0.2
       Content-Type:
       - application/json; charset=UTF-8
       Accept-Encoding:
@@ -21,25 +21,26 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - cloudflare-nginx
-      Date:
-      - Tue, 18 Mar 2014 05:40:25 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      - Cowboy
+      Via:
+      - vegur
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d146c7b45a615b7015af4d51847a94be01395121224348; expires=Mon, 23-Dec-2019
-        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
+      Content-Length:
+      - '1310'
+      Etag:
+      - '"-14435580"'
+      Date:
+      - Thu, 01 May 2014 02:36:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
       X-Powered-By:
       - Express
-      Cf-Ray:
-      - 10cf18642260070d-SJC
     body:
       encoding: UTF-8
-      string: '{"status":"success","data":{"privateKeyWIF":"9262CbSrwnzmAr441BRyZsPCNUyKyw2bQtWpXQnVTWyGAQTci4D","privateKeyHex":"42159bc355c893d2d3f747b140940f0cbac393c82e9b7caca219f4974c040140","address":"msYdtAFomTzj3SPdfhVjDQ5w8PU451d7YH","hash160":"83f2f8c7d8bd8e84f38ae219e073ded13e54ffcc","faucetType":3,"unspents":[{"confirmations":12705,"blockHeight":192661,"txHash":"87fffeb9bbb3069c5c8cca1fdaef2ee89e7b6a3d07ef757d74d45f52bb64d9d0","index":0,"scriptPubKey":"76a91483f2f8c7d8bd8e84f38ae219e073ded13e54ffcc88ac","txoutType":"pubkeyhash","value":50000,"hash160":"83f2f8c7d8bd8e84f38ae219e073ded13e54ffcc","address":"msYdtAFomTzj3SPdfhVjDQ5w8PU451d7YH"},{"confirmations":12705,"blockHeight":192661,"txHash":"a0d4c5648a19baddcb65fe20b022047bfd4364d7f8f66630a685583bdd4c736a","index":0,"scriptPubKey":"76a91483f2f8c7d8bd8e84f38ae219e073ded13e54ffcc88ac","txoutType":"pubkeyhash","value":100000,"hash160":"83f2f8c7d8bd8e84f38ae219e073ded13e54ffcc","address":"msYdtAFomTzj3SPdfhVjDQ5w8PU451d7YH"},{"confirmations":12705,"blockHeight":192661,"txHash":"bab25d5f7f65418aedec0e536c701725895026f2cc59e860553e649a204f3178","index":0,"scriptPubKey":"76a91483f2f8c7d8bd8e84f38ae219e073ded13e54ffcc88ac","txoutType":"pubkeyhash","value":10000,"hash160":"83f2f8c7d8bd8e84f38ae219e073ded13e54ffcc","address":"msYdtAFomTzj3SPdfhVjDQ5w8PU451d7YH"}]}}'
+      string: '{"status":"success","data":{"privateKeyWIF":"93VYQzKJa9thXJH578JVqDZCDw2ooF7go1eGqsYXGrHNE8FrJNv","privateKeyHex":"fb300959bf665702d0bed40b457d926665f9591e31a373de2976e27209770ec4","address":"mjmPZHJXHqYrkShakn1eeLZGsS8JB9pERs","hash160":"2e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f2","faucetType":3,"unspents":[{"confirmations":34614,"blockHeight":192769,"txHash":"b37ed9a078228d5e8e623eb2192ea46e355f5ef81a32c75fe5e052362bf45dc9","index":0,"scriptPubKey":"76a9142e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f288ac","type":"pubkeyhash","value":50000,"hash160":"2e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f2","address":"mjmPZHJXHqYrkShakn1eeLZGsS8JB9pERs"},{"confirmations":34614,"blockHeight":192769,"txHash":"74fc9b0adc9ad303c4c71b6cc0657ada56bccc6220047a57e8a43d51271c5333","index":0,"scriptPubKey":"76a9142e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f288ac","type":"pubkeyhash","value":100000,"hash160":"2e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f2","address":"mjmPZHJXHqYrkShakn1eeLZGsS8JB9pERs"},{"confirmations":34614,"blockHeight":192769,"txHash":"a2fd4266e69467550b736342a25bfb940f64d30e6942024de292871f8873ec1f","index":0,"scriptPubKey":"76a9142e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f288ac","type":"pubkeyhash","value":10000,"hash160":"2e9b6a2ab986fa4cc84e91cb0e853c6f177fb6f2","address":"mjmPZHJXHqYrkShakn1eeLZGsS8JB9pERs"}]}}'
     http_version: 
-  recorded_at: Tue, 18 Mar 2014 05:40:25 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Thu, 01 May 2014 02:36:09 GMT
+recorded_with: VCR 2.9.0

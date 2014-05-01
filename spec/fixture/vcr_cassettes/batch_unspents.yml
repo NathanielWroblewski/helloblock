@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://testnet.helloblock.io/v1/addresses/unspents?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&addresses%5B1%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
+    uri: http://mainnet.helloblock.io/v1/addresses/unspents?addresses%5B0%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej&addresses%5B1%5D=1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - '*/*'
       User-Agent:
-      - HelloBlock Gem 0.0.1
+      - HelloBlock Gem 0.0.2
       Content-Type:
       - application/json; charset=UTF-8
       Accept-Encoding:
@@ -21,29 +21,26 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - cloudflare-nginx
-      Date:
-      - Tue, 18 Mar 2014 04:27:14 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '43'
+      - Cowboy
+      Via:
+      - vegur
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d184f170bef0f2f183f6cc9dc9277f66b1395116834466; expires=Mon, 23-Dec-2019
-        23:50:00 GMT; path=/; domain=.helloblock.io; HttpOnly
-      Access-Control-Allow-Origin:
-      - '*'
+      Date:
+      - Thu, 01 May 2014 02:37:18 GMT
       Etag:
       - '"-1484056770"'
+      Content-Length:
+      - '43'
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
       X-Powered-By:
       - Express
-      Cf-Ray:
-      - 10cead376afc070d-SJC
     body:
       encoding: UTF-8
       string: '{"status":"success","data":{"unspents":[]}}'
     http_version: 
-  recorded_at: Tue, 18 Mar 2014 04:27:14 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Thu, 01 May 2014 02:37:18 GMT
+recorded_with: VCR 2.9.0
