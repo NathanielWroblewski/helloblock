@@ -39,7 +39,7 @@ describe HelloBlock::Address, '.unspents' do
     VCR.use_cassette(:batch_address_unspents) do
       response = HelloBlock::Address.where(
         addresses: [address, address]
-      ).unspents
+        ).unspents
 
       expect(response['status']).to eq 'success'
     end
@@ -49,7 +49,7 @@ describe HelloBlock::Address, '.unspents' do
     VCR.use_cassette(:batch_unspents) do
       response = HelloBlock::Address.unspents.where(
         addresses: [address, address]
-      )
+        )
 
       expect(response['status']).to eq 'success'
     end
@@ -57,7 +57,7 @@ describe HelloBlock::Address, '.unspents' do
 end
 
 describe HelloBlock::Transaction, '.find' do
-  let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
+  let(:tx) { '5faa6474c250fd6294aec220f082363327b0299802f681f50bfa598feef983f6' }
 
   it 'retrieves a single transaction from the API' do
     VCR.use_cassette(:single_transaction) do
@@ -70,7 +70,7 @@ end
 
 describe HelloBlock::Transaction, '.where' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
-  let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
+  let(:tx) { '5faa6474c250fd6294aec220f082363327b0299802f681f50bfa598feef983f6' }
 
   it 'retrieves a batch of transactions from the API' do
     VCR.use_cassette(:batch_transactions) do
@@ -108,7 +108,7 @@ describe HelloBlock::Transaction, '.limit' do
 end
 
 describe HelloBlock::Block, '.find' do
-  let(:block) { '00000000b873e79784647a6c82962c70d228557d24a747ea4d1b8bbe878e1206' }
+  let(:block) { '000000009b7262315dbf071787ad3656097b892abffd1f95a1a022f896f533fc' }
 
   it 'retrieves a block from the API' do
     VCR.use_cassette(:single_block) do
@@ -141,63 +141,79 @@ describe HelloBlock::Wallet, '.where' do
   end
 end
 
-describe HelloBlock::Faucet, '.where' do
-  it 'retrieves unspents from the API faucet' do
-    VCR.use_cassette(:faucet) do
-      response = HelloBlock::Faucet.where(type: 3)
-
-      expect(response['status']).to eq 'success'
-    end
+describe HelloBlock, 'testnet' do
+  before :each do
+    HelloBlock.network = :testnet
   end
-end
 
-describe HelloBlock::Transaction, '.propagate' do
-  let(:tx) { '0100000001dfcc651d60fae6f086fba5a6d2729cfea5cb867f4c1bca' +
-             '25192fcb60823490d6000000006b483045022100a7a7194ca4329369' +
-             '3249ccbe5bbb54efb17d22dcbfdd27c47fec1c6f2287553b02204eb7' +
-             '873322565308b06cc8a9e43c68c987d5d7eec570b2e135625c0fbe4b' +
-             '286101210355b6182f1d4ce3caad921d6abf37a20143c49f492ea606' +
-             'e8f66d0d291b0d4ab3ffffffff0110270000000000001976a91439a9' +
-             'becbf4c55b7346de80e307596901a3491c9c88ac00000000' }
-  it 'posts a new transaction to be propagated to the API' do
-    VCR.use_cassette(:propagate) do
-      response = HelloBlock::Transaction.propagate(tx)
+  describe HelloBlock::Faucet, '.where' do
+    it 'retrieves unspents from the API faucet' do
+      VCR.use_cassette(:faucet) do
+        response = HelloBlock::Faucet.where(type: 3)
 
-      expect(response['status']).to eq 'success'
+        expect(response['status']).to eq 'success'
+      end
     end
   end
 
-  it 'propagates using alias_method :create' do
-    VCR.use_cassette(:propagate) do
-      response = HelloBlock::Transaction.create(tx)
+  describe HelloBlock::Transaction, '.propagate' do
+    let(:tx) { '010000000195de226422f1110e7253739241f'+
+               'f1d2612623eac21999c4224d85d757d170ed1'+
+               '010000008c493046022100f217843f5b5341a'+
+               '430ad4314d7bc4e15cc384835ebe0085df223'+
+               'cb8c57be1b2b022100e430f2969d83c07efa2'+
+               '62f40ff955748212e9a5c596e3aecc6f54238'+
+               '19276a050141040cfa3dfb357bdff37c8748c'+
+               '7771e173453da5d7caa32972ab2f5c888fff5'+
+               'bbaeb5fc812b473bf808206930fade81ef4e3'+
+               '73e60039886b51022ce68902d96ef70ffffff'+
+               'ff0210270000000000001976a914f3d5b0848'+
+               '2c92ce43dcf90befa2a1cf17de9e46988ac58'+
+               'a41a1f010000001976a91461b469ada61f37c'+
+               '620010912a9d5d56646015f1688ac00000000' }
 
-      expect(response['status']).to eq 'success'
+     it 'posts a new transaction to be propagated to the API' do
+      VCR.use_cassette(:propagate) do
+        response = HelloBlock::Transaction.propagate(tx)
+
+        expect(response['status']).to eq 'success'
+      end
+    end
+
+    it 'propagates using alias_method :create' do
+      VCR.use_cassette(:propagate) do
+        response = HelloBlock::Transaction.create(tx)
+
+        expect(response['status']).to eq 'success'
+      end
     end
   end
-end
 
 
-describe HelloBlock::Faucet, '.withdraw' do
-  let(:address) { 'mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL' }
+  describe HelloBlock::Faucet, '.withdraw' do
+    let(:address) { 'mzPkw5EdvHCntC2hrhRXSqwHLHpLWzSZiL' }
 
-  it 'posts a withdrawal to the API' do
-    VCR.use_cassette(:withdrawal) do
-      response = HelloBlock::Faucet.withdraw(to: address, value: 100_000)
+    it 'posts a withdrawal to the API' do
+      VCR.use_cassette(:withdrawal) do
+        response = HelloBlock::Faucet.withdraw(to: address, value: 100_000)
 
-      expect(response['status']).to eq 'success'
+        expect(response['status']).to eq 'success'
+      end
     end
   end
-end
 
 
-describe HelloBlock::RPC, '.where' do
-  let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
+  describe HelloBlock::RPC, '.where' do
+    let(:tx) { 'f37e6181661473c14a123cca6f0ad0ab3303d011246f1d4bb4ccf3fccef2d700' }
 
-  it 'hits a temporary api endpoint for compatibility with bitcoin ruby' do
-    VCR.use_cassette(:rpc) do
-      response = HelloBlock::RPC.where(tx_hashes: [tx, tx])
+    it 'hits a temporary api endpoint for compatibility with bitcoin ruby' do
+      VCR.use_cassette(:rpc) do
+        response = HelloBlock::RPC.where(tx_hashes: [tx, tx])
 
-      expect(response['status']).to eq 'success'
+        expect(response['status']).to eq 'success'
+      end
     end
   end
+
+
 end

@@ -8,7 +8,7 @@ module HelloBlock
 
 
     def network
-      @network ||= :testnet
+      @network ||= :mainnet
     end
 
     def version

@@ -10,15 +10,15 @@ end
 
 describe HelloBlock, '.network=' do
   it 'sets the network to testnet or mainnet' do
-    HelloBlock.network = :mainnet
+    HelloBlock.network = :testnet
 
-    expect(HelloBlock.network).to eq :mainnet
+    expect(HelloBlock.network).to eq :testnet
   end
 end
 
 describe HelloBlock, '.network' do
-  it 'defaults to testnet' do
-    expect(HelloBlock.network).to eq :testnet
+  it 'defaults to mainnet' do
+    expect(HelloBlock.network).to eq :mainnet
   end
 end
 
