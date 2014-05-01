@@ -5,18 +5,12 @@ module HelloBlock
   class Query
     attr_accessor :query, :executed, :result
     include HelloBlock::Endpoints
-    extend HelloBlock::Endpoints
     include HelloBlock::APIParameters
-    extend HelloBlock::APIParameters
 
     def initialize
       @query = { path: ENDPOINTS[parent_class], params: {} }
       @executed = false
       @result = {}
-    end
-
-    def parent_class
-      self.class.to_s.split('::').last.downcase.to_sym
     end
 
     class << self
@@ -25,26 +19,30 @@ module HelloBlock
       end
 
       def find(id)
-        hbQuery = self.new
-        hbQuery.find(id)
+        query = self.new
+        query.find(id)
       end
 
       def where(conditions)
-        hbQuery = self.new
-        hbQuery.where(conditions)
+        query = self.new
+        query.where(conditions)
       end
 
       def limit(limit)
-        hbQuery = self.new
-        hbQuery.limit(limit)
+        query = self.new
+        query.limit(limit)
       end
 
       def offset(number)
-        hbQuery = self.new
-        hbQuery.offset(number)
+        query = self.new
+        query.offset(number)
       end
 
       alias_method :last, :limit
+    end
+
+    def parent_class
+      self.class.to_s.split('::').last.downcase.to_sym
     end
 
     def find(id)
