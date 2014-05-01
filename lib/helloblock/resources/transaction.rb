@@ -3,7 +3,6 @@ require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
   class Transaction < HelloBlock::Query
-    extend HelloBlock::APIParameters
 
     class << self
       def propagate(raw_tx_hex)

@@ -1,38 +1,14 @@
 require 'spec_helper'
 
-describe HelloBlock::Address, '.query' do
-  it 'defaults to the query hash' do
-    expect(HelloBlock::Address.query).to eq(
-      { path: '/addresses/', params: {} }
-    )
-  end
-end
-
 describe HelloBlock::Address, '.find' do
   let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
-  after :each do
-    HelloBlock::Address.inspect # clear the query for other specs
-  end
 
   it 'adds a single specific address to the path' do
-    HelloBlock::Address.find(address)
+    response = HelloBlock::Address.find(address)
 
-    expect(HelloBlock::Address.query).to eq(
+    expect(response.query).to eq(
       { path: "/addresses/#{address}", params: {} }
     )
-  end
-end
-
-describe HelloBlock::Address, 'inspect' do
-  let(:address) { '1DQN9nopGvSCDnM3LH1w7j36FtnQDZKnej' }
-  before :each do
-    HelloBlock.stub(:get)
-  end
-
-  it 'resets the query' do
-    HelloBlock::Address.find(address).inspect
-
-    expect(HelloBlock::Address.query).to eq({ path: "/addresses/", params: {} })
   end
 end
 
@@ -61,17 +37,16 @@ describe HelloBlock::Address, '.unspents' do
   end
 
   it 'adds the unspents endpoint to the path for a single address' do
-    HelloBlock::Address.find(address).unspents
+    response = HelloBlock::Address.find(address).unspents
 
-    expect(HelloBlock::Address.query[:path]).to eq "/addresses/#{address}/unspents"
+    expect(response.query[:path]).to eq "/addresses/#{address}/unspents"
   end
 
   it 'adds the unspents endpoint to the path for a batch of addresses' do
-    HelloBlock::Address.where(addresses: [address, address]).unspents
+    response = HelloBlock::Address.where(addresses: [address, address]).unspents
 
-    expect(HelloBlock::Address.query[:path]).to eq "/addresses/unspents"
-    expect(HelloBlock::Address.query[:params]).to eq(
-      { addresses: [address, address] }
+    expect(response.query[:path]).to eq "/addresses/unspents"
+    expect(response.query[:params]).to eq({ addresses: [address, address] }
     )
   end
 end

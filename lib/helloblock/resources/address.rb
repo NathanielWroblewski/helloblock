@@ -3,7 +3,6 @@ require 'helloblock/api_interface/endpoints'
 
 module HelloBlock
 	class Address < HelloBlock::Query
-		include HelloBlock::Endpoints
 
 		class << self
 			def unspents

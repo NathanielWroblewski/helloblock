@@ -4,8 +4,6 @@ require 'helloblock/api_interface/api_parameters'
 
 module HelloBlock
   class Faucet < HelloBlock::Query
-    include HelloBlock::Endpoints
-    include HelloBlock::APIParameters
 
     def self.withdraw(conditions)
       faucetQuery = self.new

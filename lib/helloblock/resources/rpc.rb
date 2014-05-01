@@ -5,6 +5,5 @@ require 'helloblock/api_interface/endpoints'
 
 module HelloBlock
   class RPC < HelloBlock::Query
-    include HelloBlock::Endpoints
   end
 end

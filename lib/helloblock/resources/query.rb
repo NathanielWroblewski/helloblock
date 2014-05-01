@@ -6,6 +6,7 @@ module HelloBlock
     attr_accessor :query, :executed, :result
     include HelloBlock::Endpoints
     include HelloBlock::APIParameters
+    extend HelloBlock::APIParameters # Some class methods requrie this
 
     def initialize
       @query = { path: ENDPOINTS[parent_class], params: {} }
@@ -78,11 +79,9 @@ module HelloBlock
         return self.result
       end
 
-      query_copy = query.clone
-      method = query_copy[:params][:post] ? :post : :get
-      query_copy[:params].delete(:post)
+      method = self.query[:params][:post] ? :post : :get
       self.executed = true
-      self.result = HelloBlock.send(method, query_copy[:path], query_copy[:params])
+      self.result = HelloBlock.send(method, self.query[:path], self.query[:params])
     end
 
     def [](attribute)
