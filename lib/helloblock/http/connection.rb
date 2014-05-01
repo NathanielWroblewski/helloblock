@@ -3,7 +3,7 @@ require 'faraday_middleware'
 module HelloBlock
   module Connection
     def connection
-      @connection ||= Faraday.new(base_url, connection_options) do |connection|
+      @connection = Faraday.new(base_url, connection_options) do |connection|
         connection.request :json
         connection.response :json
         connection.use FaradayMiddleware::Rashify
